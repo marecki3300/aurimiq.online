@@ -7,20 +7,15 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-CNFQN7YZT6');
 </script>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="AURIMIQ.ai — Intelligent Wealth Terminal. AI-powered Bloomberg-grade financial analysis for crypto, stocks, gold and forex."/>
-<title>AURIMIQ.ai — Intelligent Wealth Terminal</title>
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRMPYR8YV3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-GRMPYR8YV3');
+</script>
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -28,7 +23,10 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "x6guaire2v");
 </script>
-</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="AURIMIQ.ai — Intelligent Wealth Terminal. AI-powered Bloomberg-grade financial analysis for crypto, stocks, gold and forex."/>
+<title>AURIMIQ.ai — Intelligent Wealth Terminal</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
 <style>
@@ -45,10 +43,8 @@
   --text2: #7A8898;
   --text3: #3A4858;
 }
-
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Cormorant Garamond', Georgia, serif;
   background: var(--dark);
@@ -56,18 +52,15 @@ body {
   overflow-x: hidden;
   cursor: default;
 }
-
 body::after {
   content: '';
   position: fixed; inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none; z-index: 999; opacity: 0.5;
 }
-
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { background: var(--gold); }
-
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 24px 6vw;
@@ -75,7 +68,6 @@ nav {
   background: linear-gradient(to bottom, rgba(6,8,14,0.95), transparent);
   backdrop-filter: blur(8px);
 }
-
 .nav-logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 26px; letter-spacing: 6px;
@@ -84,7 +76,6 @@ nav {
 }
 .nav-logo img { width: 32px; height: 32px; object-fit: contain; margin-right: 8px; }
 .nav-logo span { color: var(--gold2); font-size: 16px; }
-
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-links a {
   font-family: 'JetBrains Mono', monospace;
@@ -92,7 +83,6 @@ nav {
   color: var(--text2); text-decoration: none; transition: color .3s;
 }
 .nav-links a:hover { color: var(--gold); }
-
 .nav-cta {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
@@ -100,44 +90,36 @@ nav {
   padding: 10px 24px; text-decoration: none !important; transition: all .3s;
 }
 .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
-
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   padding: 120px 6vw 80px; text-align: center; overflow: hidden;
 }
-
 .hero-video {
   position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; opacity: 0.18; z-index: 0;
 }
-
 .hero::before {
   content: ''; position: absolute; inset: 0;
   background: radial-gradient(ellipse at center top, rgba(201,168,76,0.08) 0%, transparent 60%),
               radial-gradient(ellipse at center bottom, rgba(6,8,14,0.9) 0%, transparent 60%);
   z-index: 1;
 }
-
 .hero::after {
   content: ''; position: absolute; bottom: 0; left: 10%; right: 10%; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent); z-index: 2;
 }
-
 .hero-content { position: relative; z-index: 3; }
-
 .hero-logo {
   width: 100px; height: 100px; object-fit: contain; margin-bottom: 28px;
   filter: drop-shadow(0 0 30px rgba(201,168,76,0.4));
   animation: logoFloat 4s ease-in-out infinite;
 }
-
 @keyframes logoFloat {
   0%, 100% { transform: translateY(0); filter: drop-shadow(0 0 30px rgba(201,168,76,0.4)); }
   50% { transform: translateY(-8px); filter: drop-shadow(0 0 50px rgba(201,168,76,0.6)); }
 }
-
 .hero-eyebrow {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
@@ -150,7 +132,6 @@ nav {
   background: linear-gradient(90deg, transparent, var(--gold));
 }
 .hero-eyebrow::after { transform: scaleX(-1); }
-
 .hero-title {
   font-family: 'Bebas Neue', sans-serif;
   font-size: clamp(72px, 12vw, 160px); letter-spacing: 8px; line-height: 0.9;
@@ -158,26 +139,22 @@ nav {
   animation: fadeUp .8s .1s ease both;
   text-shadow: 0 0 80px rgba(201,168,76,0.2);
 }
-
 .hero-title-ai {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(24px, 4vw, 48px); font-style: italic; font-weight: 300;
   letter-spacing: 12px; color: var(--gold); margin-bottom: 32px;
   animation: fadeUp .8s .15s ease both;
 }
-
 .hero-subtitle {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
   color: var(--text2); margin-bottom: 52px;
   animation: fadeUp .8s .2s ease both;
 }
-
 .hero-btns {
   display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
   animation: fadeUp .8s .3s ease both;
 }
-
 .btn-gold {
   background: var(--gold); color: var(--dark);
   font-family: 'JetBrains Mono', monospace;
@@ -193,7 +170,6 @@ nav {
 .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 20px 60px rgba(201,168,76,0.25); }
 .btn-gold:hover::before { opacity: 1; }
 .btn-gold span { position: relative; z-index: 1; }
-
 .btn-outline {
   background: transparent; color: var(--gold);
   font-family: 'JetBrains Mono', monospace;
@@ -204,14 +180,12 @@ nav {
 .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
 .btn-apk { border-color: rgba(201,168,76,0.6) !important; background: rgba(201,168,76,0.08) !important; }
 .btn-apk:hover { background: rgba(201,168,76,0.15) !important; }
-
 .apk-hint {
   margin-top: 16px; font-family: 'JetBrains Mono', monospace;
   font-size: 9px; letter-spacing: 2px; color: var(--text3);
   display: flex; align-items: center; gap: 8px; justify-content: center;
 }
 .apk-hint-icon { color: var(--gold); font-size: 12px; }
-
 .ticker-wrap {
   position: relative; z-index: 3; margin-top: 64px;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -237,12 +211,10 @@ nav {
 .tick-up { color: #4CAF80; }
 .tick-dn { color: #CF4A5A; }
 .tick-sep { color: var(--text3); }
-
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .gold-divider {
   display: flex; align-items: center; justify-content: center; gap: 20px; padding: 60px 6vw;
 }
@@ -252,7 +224,6 @@ nav {
 }
 .gold-divider::after { transform: scaleX(-1); }
 .gold-divider-icon { color: var(--gold); font-size: 20px; opacity: 0.6; }
-
 .features { padding: 0 6vw 120px; }
 .section-header { text-align: center; margin-bottom: 72px; }
 .section-tag {
@@ -269,7 +240,6 @@ nav {
   font-size: 16px; font-weight: 300; color: var(--text2); line-height: 1.8;
   max-width: 480px; margin: 0 auto;
 }
-
 .feat-grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 1px; background: var(--border); border: 1px solid var(--border);
@@ -289,12 +259,10 @@ nav {
 .feat-icon { font-size: 28px; margin-bottom: 16px; display: block; }
 .feat-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 3px; color: var(--gold2); margin-bottom: 10px; }
 .feat-desc { font-size: 14px; font-weight: 300; color: var(--text2); line-height: 1.8; }
-
 .demo { padding: 120px 6vw; background: var(--dark2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .demo-text .section-header { text-align: left; margin-bottom: 32px; }
 .demo-text .section-sub { margin: 0; max-width: 400px; }
-
 .terminal { border: 1px solid var(--border2); background: var(--dark); font-family: 'JetBrains Mono', monospace; box-shadow: 0 0 80px rgba(201,168,76,0.06); }
 .term-bar { background: var(--dark3); border-bottom: 1px solid var(--border); padding: 12px 16px; display: flex; align-items: center; gap: 8px; }
 .t-dot { width: 10px; height: 10px; border-radius: 50%; }
@@ -309,7 +277,6 @@ nav {
 .t-dn { color: #CF4A5A; }
 .t-cursor { display: inline-block; width: 7px; height: 13px; background: var(--gold); animation: blink 1s infinite; vertical-align: middle; }
 @keyframes blink { 0%,49%{opacity:1}50%,100%{opacity:0} }
-
 .pricing { padding: 120px 6vw; }
 .price-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 72px; max-width: 800px; margin-left: auto; margin-right: auto; }
 .price-card { background: var(--dark2); padding: 48px 36px; position: relative; }
@@ -328,18 +295,14 @@ nav {
 .price-btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
 .price-btn.solid { background: var(--gold); border: none; color: var(--dark); font-weight: 700; }
 .price-btn.solid:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.2); }
-
 .cta { padding: 140px 6vw; text-align: center; position: relative; overflow: hidden; }
 .cta::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); }
 .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 80px); font-weight: 300; font-style: italic; color: var(--gold2); line-height: 1.2; margin-bottom: 24px; position: relative; }
 .cta-sub { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--text2); margin-bottom: 52px; position: relative; }
-
 footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; align-items: center; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; color: var(--text3); }
 .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 5px; color: var(--gold); }
-
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
 .reveal.visible { opacity: 1; transform: none; }
-
 @media(max-width:768px){
   .feat-grid { grid-template-columns: 1fr; }
   .demo-grid { grid-template-columns: 1fr; }
@@ -360,28 +323,28 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     <a href="#features">Features</a>
     <a href="#pricing">Pricing</a>
     <a href="#demo">Terminal</a>
-    <a href="https://finansowa-aplikacja.netlify.app" class="nav-cta" onclick="gtag('event','click',{event_category:'nav',event_label:'launch_terminal'})">LAUNCH TERMINAL →</a>
+    <a href="https://finansowa-aplikacja.netlify.app" class="nav-cta" onclick="gtag('event','click',{event_category:'nav',event_label:'launch_terminal'})">LAUNCH TERMINAL &rarr;</a>
   </div>
 </nav>
 
 <section class="hero">
   <video class="hero-video" autoplay muted loop playsinline>
-    <source src="dubaifire.mp4" type="video/mp4"/>
+    <source src="most wall street.mp4" type="video/mp4"/>
   </video>
   <div class="hero-content">
     <img src="logo.png" alt="AURIMIQ.ai" class="hero-logo"/>
     <div class="hero-eyebrow">Bloomberg-Grade Financial Intelligence</div>
     <h1 class="hero-title">AURIMIQ</h1>
     <div class="hero-title-ai">intelligent wealth terminal</div>
-    <p class="hero-subtitle">Real-time Markets · Claude AI · DCF/LBO · Portfolio</p>
+    <p class="hero-subtitle">Real-time Markets &middot; Claude AI &middot; DCF/LBO &middot; Portfolio</p>
     <div class="hero-btns">
-      <a href="https://finansowa-aplikacja.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span>ENTER TERMINAL →</span></a>
-      <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_hero'})">📱 DOWNLOAD APK</a>
+      <a href="https://finansowa-aplikacja.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span>ENTER TERMINAL &rarr;</span></a>
+      <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_hero'})">&#128241; DOWNLOAD APK</a>
       <a href="#features" class="btn-outline" style="font-size:9px">EXPLORE FEATURES</a>
     </div>
     <div class="apk-hint">
-      <span class="apk-hint-icon">ℹ</span>
-      Android: Settings → Security → "Unknown sources" → allow → install APK
+      <span class="apk-hint-icon">&#8505;</span>
+      Android: Settings &rarr; Security &rarr; "Unknown sources" &rarr; allow &rarr; install APK
     </div>
   </div>
   <div class="ticker-wrap" style="width:100%">
@@ -389,43 +352,43 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     <div class="ticker-fade-r"></div>
     <div class="ticker" id="ticker">
       <div class="tick-item"><span class="tick-sym">BTC</span><span class="tick-price">$73,420</span><span class="tick-up">+2.4%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">ETH</span><span class="tick-price">$2,680</span><span class="tick-up">+1.8%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">NVDA</span><span class="tick-price">$1,087</span><span class="tick-up">+3.2%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">SOL</span><span class="tick-price">$148</span><span class="tick-dn">-0.9%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">AAPL</span><span class="tick-price">$213</span><span class="tick-up">+0.7%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">XRP</span><span class="tick-price">$0.514</span><span class="tick-dn">-1.2%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">BTC</span><span class="tick-price">$73,420</span><span class="tick-up">+2.4%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">ETH</span><span class="tick-price">$2,680</span><span class="tick-up">+1.8%</span></div>
-      <div class="tick-sep">·</div>
+      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div>
     </div>
   </div>
 </section>
 
-<div class="gold-divider"><span class="gold-divider-icon">◆</span></div>
+<div class="gold-divider"><span class="gold-divider-icon">&#9670;</span></div>
 
 <section class="features" id="features">
   <div class="section-header reveal">
-    <span class="section-tag">› Capabilities</span>
+    <span class="section-tag">&rsaquo; Capabilities</span>
     <h2 class="section-title">Everything you need<br/>to invest at the highest level</h2>
     <p class="section-sub">Professional-grade intelligence, powered by Claude AI and real-time market data.</p>
   </div>
   <div class="feat-grid reveal">
-    <div class="feat"><div class="feat-num">01</div><span class="feat-icon">📊</span><div class="feat-title">TRADINGVIEW CHARTS</div><div class="feat-desc">Professional candlestick charts with RSI, MACD, and Bollinger Bands. The same tools used on Wall Street trading floors.</div></div>
-    <div class="feat"><div class="feat-num">02</div><span class="feat-icon">🤖</span><div class="feat-title">CLAUDE AI ANALYST</div><div class="feat-desc">Powered by Anthropic's Claude Sonnet — the most sophisticated financial AI available. DCF models, LBO analysis, and market intelligence with live data.</div></div>
-    <div class="feat"><div class="feat-num">03</div><span class="feat-icon">⚡</span><div class="feat-title">LIVE MARKET DATA</div><div class="feat-desc">Real-time prices from Binance, CoinGecko, and Kraken. Triple redundancy ensures you always have data. Crypto, stocks, gold, and forex.</div></div>
-    <div class="feat"><div class="feat-num">04</div><span class="feat-icon">💼</span><div class="feat-title">PORTFOLIO TRACKER</div><div class="feat-desc">Track all your positions with real-time P&L calculations. Know exactly where you stand at every moment.</div></div>
-    <div class="feat"><div class="feat-num">05</div><span class="feat-icon">🧮</span><div class="feat-title">DCF & LBO MODELS</div><div class="feat-desc">Built-in financial models trusted by investment banks. Calculate enterprise value, IRR, and equity returns in seconds.</div></div>
-    <div class="feat"><div class="feat-num">06</div><span class="feat-icon">📱</span><div class="feat-title">ANDROID TERMINAL</div><div class="feat-desc">Full Bloomberg-grade terminal in your pocket. Available on Android with crypto, stocks, metals, and AI analysis.</div></div>
+    <div class="feat"><div class="feat-num">01</div><span class="feat-icon">&#128202;</span><div class="feat-title">TRADINGVIEW CHARTS</div><div class="feat-desc">Professional candlestick charts with RSI, MACD, and Bollinger Bands. The same tools used on Wall Street trading floors.</div></div>
+    <div class="feat"><div class="feat-num">02</div><span class="feat-icon">&#129302;</span><div class="feat-title">CLAUDE AI ANALYST</div><div class="feat-desc">Powered by Anthropic's Claude Sonnet — the most sophisticated financial AI available. DCF models, LBO analysis, and market intelligence with live data.</div></div>
+    <div class="feat"><div class="feat-num">03</div><span class="feat-icon">&#9889;</span><div class="feat-title">LIVE MARKET DATA</div><div class="feat-desc">Real-time prices from Binance, CoinGecko, and Kraken. Triple redundancy ensures you always have data. Crypto, stocks, gold, and forex.</div></div>
+    <div class="feat"><div class="feat-num">04</div><span class="feat-icon">&#128188;</span><div class="feat-title">PORTFOLIO TRACKER</div><div class="feat-desc">Track all your positions with real-time P&amp;L calculations. Know exactly where you stand at every moment.</div></div>
+    <div class="feat"><div class="feat-num">05</div><span class="feat-icon">&#129518;</span><div class="feat-title">DCF &amp; LBO MODELS</div><div class="feat-desc">Built-in financial models trusted by investment banks. Calculate enterprise value, IRR, and equity returns in seconds.</div></div>
+    <div class="feat"><div class="feat-num">06</div><span class="feat-icon">&#128241;</span><div class="feat-title">ANDROID TERMINAL</div><div class="feat-desc">Full Bloomberg-grade terminal in your pocket. Available on Android with crypto, stocks, metals, and AI analysis.</div></div>
   </div>
 </section>
 
@@ -433,9 +396,9 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   <div class="demo-grid">
     <div class="demo-text">
       <div class="section-header">
-        <span class="section-tag">› AI Terminal Demo</span>
+        <span class="section-tag">&rsaquo; AI Terminal Demo</span>
         <h2 class="section-title">Ask anything.<br/>Get institutional-grade answers.</h2>
-        <p class="section-sub">From price analysis to full DCF models — AURIMIQ.ai handles everything with precision.</p>
+        <p class="section-sub">From price analysis to full DCF models &mdash; AURIMIQ.ai handles everything with precision.</p>
       </div>
     </div>
     <div class="terminal reveal">
@@ -443,26 +406,26 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <div class="t-dot" style="background:#ff5f57"></div>
         <div class="t-dot" style="background:#febc2e"></div>
         <div class="t-dot" style="background:#28c840"></div>
-        <div class="term-title">aurimiq.ai — claude.terminal</div>
+        <div class="term-title">aurimiq.ai &mdash; claude.terminal</div>
       </div>
       <div class="term-body">
-        <div class="t-line"><span class="t-prompt">›</span> <span class="t-cmd">Technical analysis Bitcoin</span></div>
-        <div class="t-line" style="color:#3A4858;font-size:9px;letter-spacing:2px">CLAUDE SONNET · BINANCE LIVE DATA</div>
+        <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cmd">Technical analysis Bitcoin</span></div>
+        <div class="t-line" style="color:#3A4858;font-size:9px;letter-spacing:2px">CLAUDE SONNET &middot; BINANCE LIVE DATA</div>
         <br/>
-        <div class="t-line"><span class="t-label">CURRENT PRICE</span><span class="t-val">$73,420 · Binance</span></div>
-        <div class="t-line"><span class="t-label">SIGNAL</span><span style="color:#4CAF80;font-weight:700">◆ HOLD — ACCUMULATION</span></div>
+        <div class="t-line"><span class="t-label">CURRENT PRICE</span><span class="t-val">$73,420 &middot; Binance</span></div>
+        <div class="t-line"><span class="t-label">SIGNAL</span><span style="color:#4CAF80;font-weight:700">&#9670; HOLD &mdash; ACCUMULATION</span></div>
         <br/>
         <div class="t-line"><span class="t-label">KEY LEVELS</span></div>
-        <div class="t-line">Support: <span class="t-up">$71,000 — $72,500</span></div>
-        <div class="t-line">Resistance: <span class="t-dn">$76,000 — $78,000</span></div>
-        <div class="t-line">RSI (14): <span class="t-val">42 — neutral zone</span></div>
+        <div class="t-line">Support: <span class="t-up">$71,000 &mdash; $72,500</span></div>
+        <div class="t-line">Resistance: <span class="t-dn">$76,000 &mdash; $78,000</span></div>
+        <div class="t-line">RSI (14): <span class="t-val">42 &mdash; neutral zone</span></div>
         <br/>
         <div class="t-line"><span class="t-label">FORECAST</span></div>
-        <div class="t-line">Bull case: <span class="t-up">$82,000 — $88,000</span></div>
-        <div class="t-line">Bear case: <span class="t-dn">$68,000 — $70,000</span></div>
+        <div class="t-line">Bull case: <span class="t-up">$82,000 &mdash; $88,000</span></div>
+        <div class="t-line">Bear case: <span class="t-dn">$68,000 &mdash; $70,000</span></div>
         <br/>
-        <div class="t-line">AI Score: <span class="t-val">7/10 · Fear&Greed: 34</span></div>
-        <div class="t-line"><span class="t-prompt">›</span> <span class="t-cursor"></span></div>
+        <div class="t-line">AI Score: <span class="t-val">7/10 &middot; Fear&amp;Greed: 34</span></div>
+        <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cursor"></span></div>
       </div>
     </div>
   </div>
@@ -470,40 +433,40 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
 
 <section class="pricing" id="pricing">
   <div class="section-header reveal">
-    <span class="section-tag">› Investment Plans</span>
+    <span class="section-tag">&rsaquo; Investment Plans</span>
     <h2 class="section-title">Transparent pricing.<br/>No hidden fees.</h2>
   </div>
   <div class="price-grid reveal">
     <div class="price-card">
       <div class="price-tier">Free</div>
-      <div class="price-amount">0<span style="font-size:32px;color:var(--text3)">€</span></div>
+      <div class="price-amount">0<span style="font-size:32px;color:var(--text3)">&euro;</span></div>
       <div class="price-period">FOREVER FREE</div>
       <ul class="price-list">
         <li>1 free AI query per day</li>
         <li>TradingView charts</li>
-        <li>Live crypto & stock prices</li>
+        <li>Live crypto &amp; stock prices</li>
         <li class="off">Portfolio tracker</li>
         <li class="off">Price alerts</li>
         <li class="off">DCF/LBO models</li>
       </ul>
-      <button class="price-btn ghost" onclick="window.location='https://finansowa-aplikacja.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'start_free'})">START FREE →</button>
+      <button class="price-btn ghost" onclick="window.location='https://finansowa-aplikacja.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'start_free'})">START FREE &rarr;</button>
     </div>
     <div class="price-card featured">
       <div class="price-badge">MOST POPULAR</div>
       <div class="price-tier">Pro</div>
-      <div class="price-amount">12<span style="font-size:32px">€</span></div>
+      <div class="price-amount">12<span style="font-size:32px">&euro;</span></div>
       <div class="price-period">PER MONTH</div>
       <ul class="price-list">
         <li>Unlimited Claude AI queries</li>
         <li>TradingView + all indicators</li>
-        <li>Portfolio tracker with P&L</li>
+        <li>Portfolio tracker with P&amp;L</li>
         <li>Unlimited price alerts</li>
-        <li>DCF & LBO calculators</li>
+        <li>DCF &amp; LBO calculators</li>
         <li>PDF report export</li>
         <li>Live news feed</li>
         <li>Android terminal app</li>
       </ul>
-      <button class="price-btn solid" onclick="window.location='https://finansowa-aplikacja.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_pro'})">ACTIVATE PRO →</button>
+      <button class="price-btn solid" onclick="window.location='https://finansowa-aplikacja.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_pro'})">ACTIVATE PRO &rarr;</button>
     </div>
   </div>
 </section>
@@ -512,28 +475,28 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   <h2 class="cta-title reveal">"The Bloomberg Terminal<br/>for the modern investor."</h2>
   <p class="cta-sub reveal">Start free. Upgrade when you're ready.</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
-    <a href="https://finansowa-aplikacja.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_bottom'})"><span>ENTER TERMINAL →</span></a>
-    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_bottom'})">📱 DOWNLOAD APK</a>
+    <a href="https://finansowa-aplikacja.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_bottom'})"><span>ENTER TERMINAL &rarr;</span></a>
+    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_bottom'})">&#128241; DOWNLOAD APK</a>
   </div>
 </section>
 
 <section style="padding:80px 6vw;background:var(--dark2);border-top:1px solid var(--border)">
   <div style="max-width:600px;margin:0 auto;text-align:center">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--gold);display:block;margin-bottom:16px">› ANDROID INSTALLATION</span>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--gold);display:block;margin-bottom:16px">&rsaquo; ANDROID INSTALLATION</span>
     <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold2);margin-bottom:32px">How to install the APK?</h3>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
       <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">01</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">DOWNLOAD</div><div style="font-size:12px;color:var(--text2);font-weight:300">Tap "Download APK" and save the file to your phone</div></div>
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">02</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">ALLOW</div><div style="font-size:12px;color:var(--text2);font-weight:300">Settings → Security → "Unknown sources" → enable</div></div>
+      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">02</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">ALLOW</div><div style="font-size:12px;color:var(--text2);font-weight:300">Settings &rarr; Security &rarr; "Unknown sources" &rarr; enable</div></div>
       <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">03</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">INSTALL</div><div style="font-size:12px;color:var(--text2);font-weight:300">Open the downloaded file and tap "Install"</div></div>
     </div>
-    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" style="display:inline-block;margin-top:28px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_install_guide'})">📱 DOWNLOAD AURIMIQ.ai APK →</a>
+    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" style="display:inline-block;margin-top:28px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_install_guide'})">&#128241; DOWNLOAD AURIMIQ.ai APK &rarr;</a>
   </div>
 </section>
 
 <footer>
   <div class="footer-logo">AURIMIQ.ai</div>
-  <div>INTELLIGENT WEALTH TERMINAL · © 2026</div>
-  <div>Not financial advice. Trade responsibly.</div>
+  <div>INTELLIGENT WEALTH TERMINAL &middot; &copy; 2026</div>
+  <div>Not financial advice. Trade responsibly. &middot; <a href="privacy-policy.html" style="color:var(--gold);text-decoration:none;">Privacy Policy</a></div>
 </footer>
 
 <script>
@@ -555,7 +518,7 @@ async function updateTicker() {
       var sign = change >= 0 ? '+' : '';
       var cls = change >= 0 ? 'tick-up' : 'tick-dn';
       var priceStr = price > 100 ? '$' + price.toLocaleString('en-US', {maximumFractionDigits:0}) : '$' + price.toFixed(3);
-      return '<div class="tick-item"><span class="tick-sym">'+labels[d.symbol]+'</span><span class="tick-price">'+priceStr+'</span><span class="'+cls+'">'+sign+change.toFixed(2)+'%</span></div><div class="tick-sep">·</div>';
+      return '<div class="tick-item"><span class="tick-sym">'+labels[d.symbol]+'</span><span class="tick-price">'+priceStr+'</span><span class="'+cls+'">'+sign+change.toFixed(2)+'%</span></div><div class="tick-sep">&middot;</div>';
     });
     var html = items.join('') + items.join('');
     document.getElementById('ticker').innerHTML = html;
@@ -573,5 +536,9 @@ window.addEventListener('scroll', function() {
   });
 });
 </script>
+
+<!-- Cookie Banner -->
+<script src="cookie-banner-online.js"></script>
+
 </body>
 </html>
