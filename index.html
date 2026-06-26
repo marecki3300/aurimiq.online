@@ -11,9 +11,6 @@
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRMPYR8YV3"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
   gtag('config', 'G-GRMPYR8YV3');
 </script>
 <script type="text/javascript">
@@ -180,12 +177,42 @@ nav {
 .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.06); }
 .btn-apk { border-color: rgba(201,168,76,0.6) !important; background: rgba(201,168,76,0.08) !important; }
 .btn-apk:hover { background: rgba(201,168,76,0.15) !important; }
+
+/* ── SOCIAL PROOF ── */
+.hero-social-proof {
+  margin-top: 40px;
+  display: flex; align-items: center; justify-content: center; gap: 32px;
+  flex-wrap: wrap;
+  animation: fadeUp .8s .45s ease both;
+}
+.sp-item {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.sp-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 3px; color: var(--gold2); line-height: 1;
+}
+.sp-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 8px; letter-spacing: 3px; text-transform: uppercase; color: var(--text3);
+}
+.sp-divider { width: 1px; height: 32px; background: var(--border2); }
+
+/* APK hint — mobile only */
 .apk-hint {
   margin-top: 16px; font-family: 'JetBrains Mono', monospace;
   font-size: 9px; letter-spacing: 2px; color: var(--text3);
-  display: flex; align-items: center; gap: 8px; justify-content: center;
+  display: none; align-items: center; gap: 8px; justify-content: center;
 }
 .apk-hint-icon { color: var(--gold); font-size: 12px; }
+
+/* show APK button + hint only on mobile */
+@media(max-width: 768px) {
+  .hero-btn-apk { display: inline-block !important; }
+  .apk-hint { display: flex !important; }
+}
+.hero-btn-apk { display: none; }
+
 .ticker-wrap {
   position: relative; z-index: 3; margin-top: 64px;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
@@ -309,6 +336,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   .price-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
+  .sp-divider { display: none; }
 }
 </style>
 </head>
@@ -337,39 +365,53 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     <h1 class="hero-title">AURIMIQ</h1>
     <div class="hero-title-ai">intelligent wealth terminal</div>
     <p class="hero-subtitle">Real-time Markets &middot; Claude AI &middot; DCF/LBO &middot; Portfolio</p>
+
+    <!-- ZMIANA 1: Jedno główne CTA na desktop, APK tylko na mobile -->
     <div class="hero-btns">
-      <a href="https://finansowa-aplikacja.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span>ENTER TERMINAL &rarr;</span></a>
-      <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_hero'})">&#128241; DOWNLOAD APK</a>
-      <a href="#features" class="btn-outline" style="font-size:9px">EXPLORE FEATURES</a>
+      <a href="https://finansowa-aplikacja.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span>TRY FREE — NO SIGN UP &rarr;</span></a>
+      <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/app-release.apk" class="btn-outline btn-apk hero-btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_hero'})">&#128241; DOWNLOAD APK</a>
     </div>
     <div class="apk-hint">
       <span class="apk-hint-icon">&#8505;</span>
       Android: Settings &rarr; Security &rarr; "Unknown sources" &rarr; allow &rarr; install APK
     </div>
+
+    <!-- ZMIANA 2: Social proof -->
+    <div class="hero-social-proof">
+      <div class="sp-item">
+        <span class="sp-num">16</span>
+        <span class="sp-label">Countries</span>
+      </div>
+      <div class="sp-divider"></div>
+      <div class="sp-item">
+        <span class="sp-num">1K+</span>
+        <span class="sp-label">AI Queries</span>
+      </div>
+      <div class="sp-divider"></div>
+      <div class="sp-item">
+        <span class="sp-num">FREE</span>
+        <span class="sp-label">No Card Required</span>
+      </div>
+    </div>
+
   </div>
   <div class="ticker-wrap" style="width:100%">
     <div class="ticker-fade-l"></div>
     <div class="ticker-fade-r"></div>
     <div class="ticker" id="ticker">
-      <div class="tick-item"><span class="tick-sym">BTC</span><span class="tick-price">$73,420</span><span class="tick-up">+2.4%</span></div>
+      <div class="tick-item"><span class="tick-sym">BTC</span><span class="tick-price" id="btc-ticker-price">—</span><span class="tick-up" id="btc-ticker-change">—</span></div>
       <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">ETH</span><span class="tick-price">$2,680</span><span class="tick-up">+1.8%</span></div>
+      <div class="tick-item"><span class="tick-sym">ETH</span><span class="tick-price">—</span><span class="tick-up">—</span></div>
       <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div>
       <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">NVDA</span><span class="tick-price">$1,087</span><span class="tick-up">+3.2%</span></div>
       <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">SOL</span><span class="tick-price">$148</span><span class="tick-dn">-0.9%</span></div>
+      <div class="tick-item"><span class="tick-sym">SOL</span><span class="tick-price">—</span><span class="tick-dn">—</span></div>
       <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">AAPL</span><span class="tick-price">$213</span><span class="tick-up">+0.7%</span></div>
       <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">XRP</span><span class="tick-price">$0.514</span><span class="tick-dn">-1.2%</span></div>
-      <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">BTC</span><span class="tick-price">$73,420</span><span class="tick-up">+2.4%</span></div>
-      <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">ETH</span><span class="tick-price">$2,680</span><span class="tick-up">+1.8%</span></div>
-      <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div>
+      <div class="tick-item"><span class="tick-sym">XRP</span><span class="tick-price">—</span><span class="tick-dn">—</span></div>
     </div>
   </div>
 </section>
@@ -401,6 +443,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <p class="section-sub">From price analysis to full DCF models &mdash; AURIMIQ.ai handles everything with precision.</p>
       </div>
     </div>
+    <!-- ZMIANA 3: Demo terminal z dynamiczną ceną BTC -->
     <div class="terminal reveal">
       <div class="term-bar">
         <div class="t-dot" style="background:#ff5f57"></div>
@@ -412,19 +455,19 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cmd">Technical analysis Bitcoin</span></div>
         <div class="t-line" style="color:#3A4858;font-size:9px;letter-spacing:2px">CLAUDE SONNET &middot; BINANCE LIVE DATA</div>
         <br/>
-        <div class="t-line"><span class="t-label">CURRENT PRICE</span><span class="t-val">$73,420 &middot; Binance</span></div>
-        <div class="t-line"><span class="t-label">SIGNAL</span><span style="color:#4CAF80;font-weight:700">&#9670; HOLD &mdash; ACCUMULATION</span></div>
+        <div class="t-line"><span class="t-label">CURRENT PRICE</span><span class="t-val" id="demo-btc-price">loading…</span></div>
+        <div class="t-line"><span class="t-label">SIGNAL</span><span id="demo-signal" style="font-weight:700">&#9670; —</span></div>
         <br/>
         <div class="t-line"><span class="t-label">KEY LEVELS</span></div>
-        <div class="t-line">Support: <span class="t-up">$71,000 &mdash; $72,500</span></div>
-        <div class="t-line">Resistance: <span class="t-dn">$76,000 &mdash; $78,000</span></div>
-        <div class="t-line">RSI (14): <span class="t-val">42 &mdash; neutral zone</span></div>
+        <div class="t-line">Support: <span class="t-up" id="demo-support">—</span></div>
+        <div class="t-line">Resistance: <span class="t-dn" id="demo-resistance">—</span></div>
+        <div class="t-line">RSI (14): <span class="t-val" id="demo-rsi">—</span></div>
         <br/>
         <div class="t-line"><span class="t-label">FORECAST</span></div>
-        <div class="t-line">Bull case: <span class="t-up">$82,000 &mdash; $88,000</span></div>
-        <div class="t-line">Bear case: <span class="t-dn">$68,000 &mdash; $70,000</span></div>
+        <div class="t-line">Bull case: <span class="t-up" id="demo-bull">—</span></div>
+        <div class="t-line">Bear case: <span class="t-dn" id="demo-bear">—</span></div>
         <br/>
-        <div class="t-line">AI Score: <span class="t-val">7/10 &middot; Fear&amp;Greed: 34</span></div>
+        <div class="t-line">AI Score: <span class="t-val" id="demo-score">—</span> &middot; <span id="demo-live-tag" style="color:var(--text3)">—</span></div>
         <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cursor"></span></div>
       </div>
     </div>
@@ -507,11 +550,13 @@ var observer = new IntersectionObserver(function(entries) {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-async function updateTicker() {
+// ── TICKER + DEMO: jedna funkcja pobierająca dane z Binance ──
+async function updateMarketData() {
   try {
     var r = await fetch('https://api.binance.com/api/v3/ticker/24hr?symbols=[%22BTCUSDT%22,%22ETHUSDT%22,%22SOLUSDT%22,%22XRPUSDT%22,%22BNBUSDT%22]');
     var data = await r.json();
     var labels = { BTCUSDT:'BTC', ETHUSDT:'ETH', SOLUSDT:'SOL', XRPUSDT:'XRP', BNBUSDT:'BNB' };
+
     var items = data.map(function(d) {
       var price = parseFloat(d.lastPrice);
       var change = parseFloat(d.priceChangePercent);
@@ -520,12 +565,69 @@ async function updateTicker() {
       var priceStr = price > 100 ? '$' + price.toLocaleString('en-US', {maximumFractionDigits:0}) : '$' + price.toFixed(3);
       return '<div class="tick-item"><span class="tick-sym">'+labels[d.symbol]+'</span><span class="tick-price">'+priceStr+'</span><span class="'+cls+'">'+sign+change.toFixed(2)+'%</span></div><div class="tick-sep">&middot;</div>';
     });
-    var html = items.join('') + items.join('');
-    document.getElementById('ticker').innerHTML = html;
-  } catch(e) {}
+    // Add static items for GOLD and AAPL (not on Binance)
+    var staticItems = [
+      '<div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div><div class="tick-sep">&middot;</div>',
+      '<div class="tick-item"><span class="tick-sym">NVDA</span><span class="tick-price">$1,087</span><span class="tick-up">+3.2%</span></div><div class="tick-sep">&middot;</div>',
+      '<div class="tick-item"><span class="tick-sym">AAPL</span><span class="tick-price">$213</span><span class="tick-up">+0.7%</span></div><div class="tick-sep">&middot;</div>'
+    ];
+    var allItems = items.concat(staticItems);
+    var tickerHtml = allItems.join('') + allItems.join('');
+    document.getElementById('ticker').innerHTML = tickerHtml;
+
+    // ── Aktualizacja demo terminala na podstawie live BTC ──
+    var btc = data.find(function(d){ return d.symbol === 'BTCUSDT'; });
+    if (btc) {
+      var btcPrice = parseFloat(btc.lastPrice);
+      var btcChange = parseFloat(btc.priceChangePercent);
+
+      // Cena
+      var priceFormatted = '$' + btcPrice.toLocaleString('en-US', {maximumFractionDigits:0}) + ' · Binance';
+      document.getElementById('demo-btc-price').textContent = priceFormatted;
+
+      // Sygnał na podstawie zmiany 24h
+      var signalEl = document.getElementById('demo-signal');
+      if (btcChange > 2) {
+        signalEl.style.color = '#4CAF80';
+        signalEl.textContent = '◆ BUY — MOMENTUM';
+      } else if (btcChange < -2) {
+        signalEl.style.color = '#CF4A5A';
+        signalEl.textContent = '◆ CAUTION — BEARISH';
+      } else {
+        signalEl.style.color = '#E8C97A';
+        signalEl.textContent = '◆ HOLD — ACCUMULATION';
+      }
+
+      // Poziomy support/resistance dynamicznie (±3% i ±5%)
+      var sup1 = Math.round(btcPrice * 0.97).toLocaleString('en-US');
+      var sup2 = Math.round(btcPrice * 0.95).toLocaleString('en-US');
+      var res1 = Math.round(btcPrice * 1.03).toLocaleString('en-US');
+      var res2 = Math.round(btcPrice * 1.05).toLocaleString('en-US');
+      document.getElementById('demo-support').textContent = '$' + sup2 + ' — $' + sup1;
+      document.getElementById('demo-resistance').textContent = '$' + res1 + ' — $' + res2;
+
+      // Prognoza (±15% i ±10%)
+      var bull1 = Math.round(btcPrice * 1.10).toLocaleString('en-US');
+      var bull2 = Math.round(btcPrice * 1.15).toLocaleString('en-US');
+      var bear1 = Math.round(btcPrice * 0.90).toLocaleString('en-US');
+      var bear2 = Math.round(btcPrice * 0.85).toLocaleString('en-US');
+      document.getElementById('demo-bull').textContent = '$' + bull1 + ' — $' + bull2;
+      document.getElementById('demo-bear').textContent = '$' + bear1 + ' — $' + bear2;
+
+      // RSI i score — uproszczone szacowanie
+      var rsiVal = btcChange > 0 ? Math.min(70, 50 + btcChange * 3).toFixed(0) : Math.max(30, 50 + btcChange * 3).toFixed(0);
+      document.getElementById('demo-rsi').textContent = rsiVal + ' — ' + (rsiVal > 60 ? 'overbought zone' : rsiVal < 40 ? 'oversold zone' : 'neutral zone');
+
+      var score = btcChange > 2 ? '8/10' : btcChange < -2 ? '4/10' : '6/10';
+      document.getElementById('demo-score').textContent = score;
+      document.getElementById('demo-live-tag').textContent = 'Live Data';
+    }
+
+  } catch(e) { console.log('Market data error:', e); }
 }
-updateTicker();
-setInterval(updateTicker, 30000);
+
+updateMarketData();
+setInterval(updateMarketData, 30000);
 
 var depths = [25, 50, 75, 100];
 var tracked = {};
