@@ -475,7 +475,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     <span class="section-tag">&rsaquo; Investment Plans</span>
     <h2 class="section-title">Transparent pricing.<br/>No hidden fees.</h2>
   </div>
-  <div class="price-grid reveal">
+  <div class="price-grid reveal" style="grid-template-columns:repeat(3,1fr)">
     <div class="price-card">
       <div class="price-tier">Free</div>
       <div class="price-amount">0<span style="font-size:32px;color:var(--text3)">&euro;</span></div>
@@ -484,11 +484,26 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <li>1 free AI query per day</li>
         <li>TradingView charts</li>
         <li>Live crypto &amp; stock prices</li>
-        <li class="off">Portfolio tracker</li>
-        <li class="off">Price alerts</li>
+        <li class="off">Simple Mode 🧒</li>
+        <li class="off">Heatmaps &amp; news</li>
         <li class="off">DCF/LBO models</li>
       </ul>
       <button class="price-btn ghost" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'start_free'})">START FREE &rarr;</button>
+    </div>
+    <div class="price-card">
+      <div class="price-tier">Lite</div>
+      <div class="price-amount">5<span style="font-size:32px">&euro;</span></div>
+      <div class="price-period">PER MONTH</div>
+      <ul class="price-list">
+        <li>25 AI queries per day</li>
+        <li>TradingView + indicators (RSI, MACD)</li>
+        <li>Simple Mode 🧒</li>
+        <li>Heatmaps, news, calendar</li>
+        <li>Live FX rates</li>
+        <li class="off">Unlimited queries</li>
+        <li class="off">PDF report export</li>
+      </ul>
+      <button class="price-btn ghost" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_lite'})">CHOOSE LITE &rarr;</button>
     </div>
     <div class="price-card featured">
       <div class="price-badge">MOST POPULAR</div>
@@ -498,7 +513,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
       <ul class="price-list">
         <li>Unlimited Claude AI queries</li>
         <li>TradingView + all indicators</li>
-        <li>Portfolio tracker with P&amp;L</li>
+        <li>Simple Mode 🧒 + heatmaps</li>
         <li>Unlimited price alerts</li>
         <li>DCF &amp; LBO calculators</li>
         <li>PDF report export</li>
