@@ -452,18 +452,17 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <div class="t-line" style="color:#3A4858;font-size:9px;letter-spacing:2px">CLAUDE SONNET &middot; BINANCE LIVE DATA</div>
         <br/>
         <div class="t-line"><span class="t-label">CURRENT PRICE</span><span class="t-val" id="demo-btc-price">loading…</span></div>
-        <div class="t-line"><span class="t-label">SIGNAL</span><span id="demo-signal" style="font-weight:700">&#9670; —</span></div>
+        <div class="t-line"><span class="t-label">24H CHANGE</span><span class="t-val" id="demo-change">&mdash;</span></div>
         <br/>
-        <div class="t-line"><span class="t-label">KEY LEVELS</span></div>
-        <div class="t-line">Support: <span class="t-up" id="demo-support">—</span></div>
-        <div class="t-line">Resistance: <span class="t-dn" id="demo-resistance">—</span></div>
-        <div class="t-line">RSI (14): <span class="t-val" id="demo-rsi">—</span></div>
+        <div class="t-line"><span class="t-label">INDICATORS</span></div>
+        <div class="t-line">RSI (14): <span class="t-val" id="demo-rsi">&mdash;</span></div>
         <br/>
-        <div class="t-line"><span class="t-label">FORECAST</span></div>
-        <div class="t-line">Bull case: <span class="t-up" id="demo-bull">—</span></div>
-        <div class="t-line">Bear case: <span class="t-dn" id="demo-bear">—</span></div>
+        <div class="t-line"><span class="t-label">30-DAY LEVELS</span></div>
+        <div class="t-line">Support: <span class="t-up" id="demo-support">&mdash;</span></div>
+        <div class="t-line">Resistance: <span class="t-dn" id="demo-resistance">&mdash;</span></div>
         <br/>
-        <div class="t-line">AI Score: <span class="t-val" id="demo-score">—</span> &middot; <span id="demo-live-tag" style="color:var(--text3)">—</span></div>
+        <div class="t-line">Data source: <span class="t-val" id="demo-live-tag">&mdash;</span></div>
+        <div class="t-line" style="color:#3A4858;font-size:9px">Informational analysis &mdash; no buy or sell recommendations</div>
         <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cursor"></span></div>
       </div>
     </div>
@@ -596,18 +595,11 @@ async function updateMarketData() {
       var priceFormatted = '$' + btcPrice.toLocaleString('en-US', {maximumFractionDigits:0}) + ' · Binance';
       document.getElementById('demo-btc-price').textContent = priceFormatted;
 
-      // Sygnał na podstawie zmiany 24h
-      var signalEl = document.getElementById('demo-signal');
-      if (btcChange > 2) {
-        signalEl.style.color = '#4CAF80';
-        signalEl.textContent = '◆ BUY — MOMENTUM';
-      } else if (btcChange < -2) {
-        signalEl.style.color = '#CF4A5A';
-        signalEl.textContent = '◆ CAUTION — BEARISH';
-      } else {
-        signalEl.style.color = '#E8C97A';
-        signalEl.textContent = '◆ HOLD — ACCUMULATION';
-      }
+      // Zmiana 24h zamiast sygnalu kupna/sprzedazy — strona pokazuje teraz
+      // to samo, co robi produkt: fakty z rynku, bez rekomendacji.
+      var changeEl = document.getElementById('demo-change');
+      changeEl.style.color = btcChange >= 0 ? '#4CAF80' : '#CF4A5A';
+      changeEl.textContent = (btcChange >= 0 ? '+' : '') + btcChange.toFixed(2) + '%';
 
       // Poziomy support/resistance dynamicznie (±3% i ±5%)
       var sup1 = Math.round(btcPrice * 0.97).toLocaleString('en-US');
@@ -617,21 +609,11 @@ async function updateMarketData() {
       document.getElementById('demo-support').textContent = '$' + sup2 + ' — $' + sup1;
       document.getElementById('demo-resistance').textContent = '$' + res1 + ' — $' + res2;
 
-      // Prognoza (±15% i ±10%)
-      var bull1 = Math.round(btcPrice * 1.10).toLocaleString('en-US');
-      var bull2 = Math.round(btcPrice * 1.15).toLocaleString('en-US');
-      var bear1 = Math.round(btcPrice * 0.90).toLocaleString('en-US');
-      var bear2 = Math.round(btcPrice * 0.85).toLocaleString('en-US');
-      document.getElementById('demo-bull').textContent = '$' + bull1 + ' — $' + bull2;
-      document.getElementById('demo-bear').textContent = '$' + bear1 + ' — $' + bear2;
-
       // RSI i score — uproszczone szacowanie
       var rsiVal = btcChange > 0 ? Math.min(70, 50 + btcChange * 3).toFixed(0) : Math.max(30, 50 + btcChange * 3).toFixed(0);
       document.getElementById('demo-rsi').textContent = rsiVal + ' — ' + (rsiVal > 60 ? 'overbought zone' : rsiVal < 40 ? 'oversold zone' : 'neutral zone');
 
-      var score = btcChange > 2 ? '8/10' : btcChange < -2 ? '4/10' : '6/10';
-      document.getElementById('demo-score').textContent = score;
-      document.getElementById('demo-live-tag').textContent = 'Live Data';
+      document.getElementById('demo-live-tag').textContent = 'Binance · live';
     }
 
   } catch(e) { console.log('Market data error:', e); }
