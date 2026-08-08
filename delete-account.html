@@ -1,1 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CNFQN7YZT6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-CNFQN7YZT6');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRMPYR8YV3"></script>
+<script>
+  gtag('config', 'G-GRMPYR8YV3');
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "x6guaire2v");
+</script>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="AURIMIQ.ai — Account Deletion Request"/>
+<title>Account Deletion — AURIMIQ.ai</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold2: #E8C97A;
+  --gold3: #F5E4A0;
+  --dark: #06080E;
+  --dark2: #0A0E18;
+  --dark3: #0E1520;
+  --border: rgba(201,168,76,0.15);
+  --border2: rgba(201,168,76,0.3);
+  --text: #C8D0D8;
+  --text2: #7A8898;
+  --text3: #3A4858;
+  --danger: #CF4A5A;
+  --success: #4CAF80;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: var(--dark);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  padding: 24px 6vw;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(6,8,14,0.95);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; letter-spacing: 6px;
+  color: var(--gold); text-decoration: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.nav-logo img { width: 32px; height: 32px; object-fit: contain; }
+.container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 40px;
+  background: var(--dark2);
+  border: 1px solid var(--border2);
+  width: 90%;
+}
+.title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; letter-spacing: 3px;
+  color: var(--gold2); margin-bottom: 12px;
+}
+.subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; color: var(--text2);
+  line-height: 1.6; margin-bottom: 30px;
+}
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--gold); margin-bottom: 8px;
+  text-transform: uppercase;
+}
+input, textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  outline: none;
+  transition: border-color .3s;
+}
+input:focus, textarea:focus {
+  border-color: var(--gold);
+}
+.btn-delete {
+  width: 100%;
+  padding: 16px;
+  background: var(--danger);
+  color: #fff;
+  border: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 3px;
+  font-weight: 700; text-transform: uppercase;
+  cursor: pointer; transition: all .3s;
+  margin-top: 10px;
+}
+.btn-delete:hover {
+  background: #e63946;
+  box-shadow: 0 0 20px rgba(207,74,90,0.4);
+}
+.status-msg {
+  display: none;
+  margin-top: 20px;
+  padding: 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  text-align: center;
+}
+.status-msg.success {
+  display: block;
+  background: rgba(76, 175, 128, 0.1);
+  border: 1px solid var(--success);
+  color: var(--success);
+}
+.status-msg.error {
+  display: block;
+  background: rgba(207, 74, 90, 0.1);
+  border: 1px solid var(--danger);
+  color: var(--danger);
+}
+footer {
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+  padding: 30px 6vw;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--text3);
+}
+</style>
+</head>
+<body>
 
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.png" alt="AURIMIQ"/>
+    AURIMIQ<span>.ai</span>
+  </a>
+</nav>
+
+<div class="container">
+  <h1 class="title">Delete Your Account</h1>
+  <p class="subtitle">Submitting this request will permanently delete your account, saved preferences, portfolio data, and query history from AURIMIQ.ai.</p>
+
+  <form id="delete-form" action="https://formsubmit.co/aurimiq@proton.me" method="POST">
+    <div class="form-group">
+      <label for="email">Account Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="your.email@example.com"/>
+    </div>
+
+    <div class="form-group">
+      <label for="reason">Reason for deletion (Optional)</label>
+      <textarea id="reason" name="reason" rows="3" placeholder="Let us know why you are leaving..."></textarea>
+    </div>
+
+    <button type="submit" class="btn-delete" id="submit-btn">PERMANENTLY DELETE ACCOUNT</button>
+  </form>
+
+  <div id="status-message" class="status-msg"></div>
+</div>
+
+<footer>
+  AURIMIQ.ai &middot; INTELLIGENT WEALTH TERMINAL &middot; &copy; 2026
+</footer>
+
+<script>
+  const form = document.getElementById('delete-form');
+  const statusMsg = document.getElementById('status-message');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    submitBtn.innerText = "PROCESSING...";
+    submitBtn.disabled = true;
+
+    const email = document.getElementById('email').value;
+    const reason = document.getElementById('reason').value;
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        statusMsg.className = 'status-msg success';
+        statusMsg.innerText = 'Deletion request submitted successfully. Your account data will be permanently removed within 24 hours.';
+        form.reset();
+      } else {
+        throw new Error('Failed to send request');
+      }
+    } catch (error) {
+      // Fallback: Jeśli serwer wysyłania zablokuje zapytanie AJAX, otwiera gotowego maila do wysłania
+      window.location.href = `mailto:aurimiq@proton.me?subject=Account Deletion Request&body=Email to delete: ${encodeURIComponent(email)}%0D%0AReason: ${encodeURIComponent(reason)}`;
+      statusMsg.className = 'status-msg success';
+      statusMsg.innerText = 'Opened your email client. Please click send to finalize your deletion request to aurimiq@proton.me.';
+    } finally {
+      submitBtn.innerText = "PERMANENTLY DELETE ACCOUNT";
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
