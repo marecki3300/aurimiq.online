@@ -1,28 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CNFQN7YZT6"></script>
+<!-- Pomiary NIE startuja tutaj.
+     Google Analytics i Microsoft Clarity ladowaly sie w tym miejscu
+     bezwarunkowo, zanim uzytkownik cokolwiek kliknal — a baner zgody
+     szedl dopiero w ostatniej linii pliku i tak naprawde niczego nie
+     blokowal. Teraz oba uruchamia cookie-banner-online.js, i wylacznie
+     po zgodzie.
+
+     Zostaje sama atrapa gtag(): strona wola gtag('event', ...) w wielu
+     miejscach i bez tej funkcji klikniecia rzucalyby bledem. Zdarzenia
+     ladują do dataLayer i albo trafia do GA po zgodzie, albo nigdzie. -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-CNFQN7YZT6');
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-GRMPYR8YV3"></script>
-<script>
-  gtag('config', 'G-GRMPYR8YV3');
-</script>
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x6guaire2v");
+  function gtag(){ dataLayer.push(arguments); }
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="AURIMIQ.ai — Intelligent Wealth Terminal. AI-powered Bloomberg-grade financial analysis for crypto, stocks, gold and forex."/>
+<meta name="description" content="AURIMIQ.ai — Intelligent Wealth Terminal. Independent AI market analysis for crypto, stocks, commodities and forex. No account access, no commission."/>
 <title>AURIMIQ.ai — Intelligent Wealth Terminal</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
@@ -361,7 +356,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   </video>
   <div class="hero-content">
     <img src="logo.png" alt="AURIMIQ.ai" class="hero-logo"/>
-    <div class="hero-eyebrow">Bloomberg-Grade Financial Intelligence</div>
+    <div class="hero-eyebrow">Independent Market Intelligence</div>
     <h1 class="hero-title">AURIMIQ</h1>
     <div class="hero-title-ai">intelligent wealth terminal</div>
     <p class="hero-subtitle">Real-time Markets &middot; Claude AI &middot; DCF/LBO &middot; Portfolio</p>
@@ -375,14 +370,17 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
 
     <!-- ZMIANA 2: Social proof -->
     <div class="hero-social-proof">
+      <!-- Wczesniej staly tu liczby "16 Countries" i "1K+ AI Queries",
+           ktorych nie da sie potwierdzic. Zastapione stwierdzeniami prawdziwymi
+           z konstrukcji produktu — i mocniejszymi sprzedazowo. -->
       <div class="sp-item">
-        <span class="sp-num">16</span>
-        <span class="sp-label">Countries</span>
+        <span class="sp-num">NO</span>
+        <span class="sp-label">Bank Account Access</span>
       </div>
       <div class="sp-divider"></div>
       <div class="sp-item">
-        <span class="sp-num">1K+</span>
-        <span class="sp-label">AI Queries</span>
+        <span class="sp-num">NO</span>
+        <span class="sp-label">Commission Ever</span>
       </div>
       <div class="sp-divider"></div>
       <div class="sp-item">
@@ -400,13 +398,7 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
       <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">ETH</span><span class="tick-price">—</span><span class="tick-up">—</span></div>
       <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div>
-      <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">NVDA</span><span class="tick-price">$1,087</span><span class="tick-up">+3.2%</span></div>
-      <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">SOL</span><span class="tick-price">—</span><span class="tick-dn">—</span></div>
-      <div class="tick-sep">&middot;</div>
-      <div class="tick-item"><span class="tick-sym">AAPL</span><span class="tick-price">$213</span><span class="tick-up">+0.7%</span></div>
       <div class="tick-sep">&middot;</div>
       <div class="tick-item"><span class="tick-sym">XRP</span><span class="tick-price">—</span><span class="tick-dn">—</span></div>
     </div>
@@ -423,11 +415,11 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   </div>
   <div class="feat-grid reveal">
     <div class="feat"><div class="feat-num">01</div><span class="feat-icon">&#128202;</span><div class="feat-title">TRADINGVIEW CHARTS</div><div class="feat-desc">Professional candlestick charts with RSI, MACD, and Bollinger Bands. The same tools used on Wall Street trading floors.</div></div>
-    <div class="feat"><div class="feat-num">02</div><span class="feat-icon">&#129302;</span><div class="feat-title">CLAUDE AI ANALYST</div><div class="feat-desc">Powered by Anthropic's Claude Sonnet — the most sophisticated financial AI available. DCF models, LBO analysis, and market intelligence with live data.</div></div>
+    <div class="feat"><div class="feat-num">02</div><span class="feat-icon">&#129302;</span><div class="feat-title">CLAUDE AI ANALYST</div><div class="feat-desc">Powered by Anthropic's Claude Sonnet, with market data and technical indicators computed on our servers — so the model reads real numbers instead of its training memory. DCF and LBO models included.</div></div>
     <div class="feat"><div class="feat-num">03</div><span class="feat-icon">&#9889;</span><div class="feat-title">LIVE MARKET DATA</div><div class="feat-desc">Real-time prices from Binance, CoinGecko, and Kraken. Triple redundancy ensures you always have data. Crypto, stocks, gold, and forex.</div></div>
     <div class="feat"><div class="feat-num">04</div><span class="feat-icon">&#128188;</span><div class="feat-title">PORTFOLIO TRACKER</div><div class="feat-desc">Track all your positions with real-time P&amp;L calculations. Know exactly where you stand at every moment.</div></div>
     <div class="feat"><div class="feat-num">05</div><span class="feat-icon">&#129518;</span><div class="feat-title">DCF &amp; LBO MODELS</div><div class="feat-desc">Built-in financial models trusted by investment banks. Calculate enterprise value, IRR, and equity returns in seconds.</div></div>
-    <div class="feat"><div class="feat-num">06</div><span class="feat-icon">&#128241;</span><div class="feat-title">ANDROID TERMINAL</div><div class="feat-desc">Full Bloomberg-grade terminal in your pocket. Available on Android with crypto, stocks, metals, and AI analysis.</div></div>
+    <div class="feat"><div class="feat-num">06</div><span class="feat-icon">&#128241;</span><div class="feat-title">ANDROID TERMINAL</div><div class="feat-desc">The full analysis terminal in your pocket. Available on Android with crypto, stocks, metals, and AI analysis.</div></div>
   </div>
 </section>
 
@@ -526,8 +518,8 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
 </section>
 
 <section class="cta">
-  <h2 class="cta-title reveal">"The Bloomberg Terminal<br/>for the modern investor."</h2>
-  <p class="cta-sub reveal">Start free. Upgrade when you're ready.</p>
+  <h2 class="cta-title reveal">No account access.<br/>No commission.<br/>No conflict of interest.</h2>
+  <p class="cta-sub reveal">We sell no products &middot; We take no commission &middot; We never touch your account</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
     <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_bottom'})"><span>ENTER TERMINAL &rarr;</span></a>
         <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_bottom'})">&#9654; GOOGLE PLAY</a>
@@ -554,7 +546,6 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   <div>INTELLIGENT WEALTH TERMINAL &middot; &copy; 2026</div>
   <div>
     Not financial advice. Trade responsibly. &middot; 
-    <a href="privacy-policy.html" style="color:var(--gold);text-decoration:none;">Privacy Policy</a> &middot; 
     <a href="delete-account.html" style="color:var(--gold);text-decoration:none;">Delete Account</a>
   </div>
 </footer>
@@ -582,13 +573,10 @@ async function updateMarketData() {
       var priceStr = price > 100 ? '$' + price.toLocaleString('en-US', {maximumFractionDigits:0}) : '$' + price.toFixed(3);
       return '<div class="tick-item"><span class="tick-sym">'+labels[d.symbol]+'</span><span class="tick-price">'+priceStr+'</span><span class="'+cls+'">'+sign+change.toFixed(2)+'%</span></div><div class="tick-sep">&middot;</div>';
     });
-    // Add static items for GOLD and AAPL (not on Binance)
-    var staticItems = [
-      '<div class="tick-item"><span class="tick-sym">GOLD</span><span class="tick-price">$3,280</span><span class="tick-up">+0.4%</span></div><div class="tick-sep">&middot;</div>',
-      '<div class="tick-item"><span class="tick-sym">NVDA</span><span class="tick-price">$1,087</span><span class="tick-up">+3.2%</span></div><div class="tick-sep">&middot;</div>',
-      '<div class="tick-item"><span class="tick-sym">AAPL</span><span class="tick-price">$213</span><span class="tick-up">+0.7%</span></div><div class="tick-sep">&middot;</div>'
-    ];
-    var allItems = items.concat(staticItems);
+    // Pasek pokazuje WYLACZNIE kursy pobrane przed chwila. Wczesniej plynely
+    // tu obok nich recznie wpisane ceny zlota, NVDA i AAPL — nieaktualne od
+    // miesiecy i nieodroznialne dla czytelnika od danych na zywo.
+    var allItems = items;
     var tickerHtml = allItems.join('') + allItems.join('');
     document.getElementById('ticker').innerHTML = tickerHtml;
 
@@ -608,22 +596,53 @@ async function updateMarketData() {
       changeEl.style.color = btcChange >= 0 ? '#4CAF80' : '#CF4A5A';
       changeEl.textContent = (btcChange >= 0 ? '+' : '') + btcChange.toFixed(2) + '%';
 
-      // Poziomy support/resistance dynamicznie (±3% i ±5%)
-      var sup1 = Math.round(btcPrice * 0.97).toLocaleString('en-US');
-      var sup2 = Math.round(btcPrice * 0.95).toLocaleString('en-US');
-      var res1 = Math.round(btcPrice * 1.03).toLocaleString('en-US');
-      var res2 = Math.round(btcPrice * 1.05).toLocaleString('en-US');
-      document.getElementById('demo-support').textContent = '$' + sup2 + ' — $' + sup1;
-      document.getElementById('demo-resistance').textContent = '$' + res1 + ' — $' + res2;
-
-      // RSI i score — uproszczone szacowanie
-      var rsiVal = btcChange > 0 ? Math.min(70, 50 + btcChange * 3).toFixed(0) : Math.max(30, 50 + btcChange * 3).toFixed(0);
-      document.getElementById('demo-rsi').textContent = rsiVal + ' — ' + (rsiVal > 60 ? 'overbought zone' : rsiVal < 40 ? 'oversold zone' : 'neutral zone');
-
-      document.getElementById('demo-live-tag').textContent = 'Binance · live';
+      // Poziomy i RSI licza sie z PRAWDZIWYCH swiec dziennych.
+      //
+      // Poprzednia wersja pokazywala "RSI (14)" wyliczone jako
+      // 50 + zmiana24h*3, a "30-DAY LEVELS" jako cene +/-3% i +/-5%,
+      // wszystko podpisane "Binance - live". To byly liczby zmyslone,
+      // podane jako realna analiza, na stronie sprzedajacej analize.
+      loadRealIndicators();
     }
 
   } catch(e) { console.log('Market data error:', e); }
+}
+
+// ── Prawdziwy RSI(14) wg Wildera i realne ekstrema 30 sesji ──
+// Swiece dzienne z publicznego API Binance, bez klucza i bez autoryzacji.
+async function loadRealIndicators() {
+  try {
+    var r = await fetch('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1d&limit=200');
+    var k = await r.json();
+    var closes = k.map(function(x){ return parseFloat(x[4]); });
+    var highs  = k.map(function(x){ return parseFloat(x[2]); });
+    var lows   = k.map(function(x){ return parseFloat(x[3]); });
+    if (closes.length < 60) return;
+
+    // RSI(14), wygladzanie Wildera — ta sama metoda co w backendzie
+    var period = 14, gains = 0, losses = 0, i;
+    for (i = 1; i <= period; i++) {
+      var d = closes[i] - closes[i-1];
+      if (d >= 0) gains += d; else losses -= d;
+    }
+    var ag = gains / period, al = losses / period;
+    for (i = period + 1; i < closes.length; i++) {
+      var dd = closes[i] - closes[i-1];
+      ag = (ag * (period - 1) + (dd > 0 ? dd : 0)) / period;
+      al = (al * (period - 1) + (dd < 0 ? -dd : 0)) / period;
+    }
+    var rsi = al === 0 ? 100 : 100 - 100 / (1 + ag / al);
+
+    var lo30 = Math.min.apply(null, lows.slice(-30));
+    var hi30 = Math.max.apply(null, highs.slice(-30));
+    var fmt = function(v){ return '$' + Math.round(v).toLocaleString('en-US'); };
+
+    document.getElementById('demo-rsi').textContent =
+      rsi.toFixed(1) + ' — ' + (rsi > 70 ? 'overbought' : rsi < 30 ? 'oversold' : 'neutral');
+    document.getElementById('demo-support').textContent = fmt(lo30) + ' (30d low)';
+    document.getElementById('demo-resistance').textContent = fmt(hi30) + ' (30d high)';
+    document.getElementById('demo-live-tag').textContent = 'Binance daily candles · computed live';
+  } catch (e) { console.log('Indicators error:', e); }
 }
 
 updateMarketData();
@@ -639,8 +658,212 @@ window.addEventListener('scroll', function() {
 });
 </script>
 
-<!-- Cookie Banner -->  
+<!-- Cookie Banner -->
 <script src="cookie-banner-online.js"></script>
- 
+
+
+<!-- ══════════════════════════════════════════════════════════════
+     WARSTWA PRAWNA — wersja do landingow (aurimiq.online, aurimiq.pl)
+     Dodane 20.08.2026. Powody:
+     - § 5 DDG wymaga Impressum na kazdej komercyjnej stronie
+       dostepnej w Niemczech
+     - § 356a BGB (od 19.06.2026) wymaga funkcji odstapienia
+       dostepnej stale i wyraznie, takze przy sprzedazy przez platformy
+     - art. 50 AI Act (od 02.08.2026) wymaga informacji, ze uzytkownik
+       ma do czynienia z AI
+     Tresc jest projektem, nie opinia prawnika.
+     ══════════════════════════════════════════════════════════════ -->
+<style>
+/* Stopka nie zawijala sie, wiec linki prawne wciskaly sie w bok zamiast
+   zajac wlasny wiersz. § 356a wymaga, zeby byly wyraznie umieszczone. */
+footer{flex-wrap:wrap;row-gap:18px}
+#legalBar{padding-top:16px;border-top:1px solid rgba(201,168,76,0.15);
+  display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:14px;
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px}
+#legalBar a{color:#C9A84C;text-decoration:none;cursor:pointer}
+#legalBar a:hover{text-decoration:underline}
+#legalBar span{color:#3A4858}
+#legalModal{position:fixed;inset:0;z-index:9100;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.82);padding:16px}
+#legalModal.open{display:flex}
+#legalBox{background:#0c1017;border:1px solid rgba(212,175,55,.35);border-radius:10px;max-width:760px;width:100%;
+  max-height:86vh;overflow:auto;padding:26px 28px;color:#c8cfda;font-size:13px;line-height:1.65}
+#legalBox h2{color:#d4af37;font-size:16px;margin:0 0 14px;letter-spacing:.06em}
+#legalBox h3{color:#e8edf4;font-size:13px;margin:18px 0 6px}
+#legalBox p{margin:0 0 10px}
+#legalBox label{display:block;margin:10px 0 4px;color:#8a93a3;font-size:11px;letter-spacing:.05em}
+#legalBox input,#legalBox textarea{width:100%;box-sizing:border-box;background:#070a0f;border:1px solid rgba(212,175,55,.28);
+  border-radius:6px;color:#e8edf4;padding:9px 11px;font-size:13px;font-family:inherit}
+#legalBox button.wrsend{margin-top:14px;background:#d4af37;color:#0a0e14;border:0;border-radius:6px;padding:11px 20px;
+  font-weight:700;cursor:pointer;letter-spacing:.06em}
+#legalClose{float:right;background:none;border:0;color:#8a93a3;font-size:20px;cursor:pointer;line-height:1;margin:-6px -6px 0 0}
+#wrResult{margin-top:12px;padding:11px;border-radius:6px;display:none}
+body{padding-bottom:42px}
+</style>
+
+<div id="legalModal" onclick="if(event.target===this)closeLegal()">
+  <div id="legalBox"><button id="legalClose" onclick="closeLegal()">&times;</button><div id="legalContent"></div></div>
+</div>
+
+<script>
+/* Dane firmy — jedno miejsce prawdy dla wszystkich trzech jezykow. */
+var BACKEND_URL = window.BACKEND_URL || 'https://aplikacja-yrql.onrender.com';
+
+var LEGAL_ENTITY = {
+  name:    'Marek Oleszkiewicz',
+  street:  'ul. Robotnicza 51',
+  city:    '68-300 Lubsko',
+  country: { pl: 'Polska', en: 'Poland', de: 'Polen' },
+  email:   'aurimiq@proton.me',
+  nip:     '9281330141'
+};
+
+var LEGAL_UI = {
+  pl: { impressum:'Dane firmy', privacy:'Prywatność', terms:'Regulamin', withdraw:'Odstąpienie od umowy', ai:'Odpowiedzi generuje AI' },
+  en: { impressum:'Legal notice', privacy:'Privacy', terms:'Terms', withdraw:'Withdraw from contract', ai:'Answers are AI-generated' },
+  de: { impressum:'Impressum', privacy:'Datenschutz', terms:'AGB', withdraw:'Vertrag widerrufen', ai:'Antworten werden von KI erzeugt' }
+};
+
+function legalEntityBlock(l) {
+  var e = LEGAL_ENTITY;
+  return '<p>' + e.name + '<br>' + e.street + '<br>' + e.city + '<br>' + e.country[l] +
+         '<br><br>E-Mail: <a href="mailto:' + e.email + '" style="color:#d4af37">' + e.email + '</a>' +
+         '<br>' + (l === 'de' ? 'Steuernummer (NIP)' : l === 'en' ? 'Tax ID (NIP)' : 'NIP') + ': ' + e.nip + '</p>';
+}
+
+var LEGAL_TEXT = {
+  de: {
+    impressum: '<h2>Impressum</h2><p>Angaben gemäß § 5 DDG</p>' + legalEntityBlock('de') +
+      '<h3>Verantwortlich für den Inhalt</h3><p>' + LEGAL_ENTITY.name + ', Anschrift wie oben.</p>' +
+      '<h3>Umsatzsteuer</h3><p>Kleinunternehmer — keine Umsatzsteuer-Identifikationsnummer vorhanden.</p>' +
+      '<h3>Hinweis nach Art. 50 KI-Verordnung</h3><p>Die Analysen in AURIMIQ.ai werden von einem KI-System erzeugt. Sie können Fehler enthalten und sind keine Anlageberatung.</p>' +
+      '<h3>Streitbeilegung</h3><p>Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>',
+    privacy: '<h2>Datenschutzerklärung</h2><h3>Verantwortlicher</h3>' + legalEntityBlock('de') +
+      '<h3>Welche Daten wir verarbeiten</h3><p>E-Mail-Adresse und Name bei der Registrierung, Ihre Anfragen an die KI und die dazugehörigen Antworten, Abonnementstatus. Wir fordern <strong>keinen Zugriff auf Ihr Bankkonto oder Depot</strong> an und erhalten keine Bankdaten.</p>' +
+      '<h3>Empfänger und Drittlandtransfer</h3><p>Zur Erbringung des Dienstes setzen wir ein: Supabase (Authentifizierung, Datenbank), Render (Hosting der Anwendung), Anthropic und Groq (Erzeugung der Analysen), Stripe und Google Play (Zahlungsabwicklung). Ihre Anfragen an die KI werden dabei <strong>an Anbieter in den USA übermittelt</strong>, gestützt auf Standardvertragsklauseln bzw. das EU-US Data Privacy Framework. Geben Sie im Chat keine Angaben ein, die Sie nicht übermitteln möchten.</p>' +
+      '<h3>Rechtsgrundlagen</h3><p>Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) für Konto und Abonnement, Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) für Betriebssicherheit.</p>' +
+      '<h3>Ihre Rechte</h3><p>Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit, Widerspruch sowie Beschwerde bei einer Aufsichtsbehörde. Ihr Konto können Sie jederzeit in der Anwendung selbst löschen; schreiben Sie uns alternativ an ' + LEGAL_ENTITY.email + '.</p>',
+    terms: '<h2>Allgemeine Geschäftsbedingungen</h2>' +
+      '<h3>1. Leistung</h3><p>AURIMIQ.ai ist ein Informations- und Analysewerkzeug für Finanzmärkte. Der Dienst stellt Marktdaten, berechnete technische Indikatoren und KI-erzeugte Erläuterungen bereit.</p>' +
+      '<h3>2. Keine Anlageberatung</h3><p>Der Dienst erbringt <strong>keine Anlageberatung und keine Anlagevermittlung</strong>. Es werden keine Kauf-, Verkaufs- oder Halteempfehlungen, keine Kursziele und keine persönlichen Empfehlungen abgegeben. Anlageentscheidungen treffen Sie eigenverantwortlich.</p>' +
+      '<h3>3. Richtigkeit</h3><p>Marktdaten stammen von Dritten und können verzögert oder fehlerhaft sein. KI-erzeugte Texte können Fehler enthalten. Eine Gewähr für Richtigkeit, Vollständigkeit und Aktualität wird nicht übernommen.</p>' +
+      '<h3>4. Abonnement und Kündigung</h3><p>Abonnements laufen monatlich und verlängern sich um jeweils einen Monat, sofern nicht gekündigt wird. Über Google Play abgeschlossene Abonnements kündigen Sie in Ihrem Google-Play-Konto, über die Website abgeschlossene über die Zahlungsverwaltung oder per E-Mail an ' + LEGAL_ENTITY.email + '.</p>' +
+      '<h3>5. Haftung</h3><p>Die Haftung richtet sich nach den gesetzlichen Vorschriften. Für Vermögensschäden aus Anlageentscheidungen wird nicht gehaftet, da der Dienst keine Beratung darstellt.</p>' +
+      '<h3>6. Recht</h3><p>Es gilt polnisches Recht. Zwingende Verbraucherschutzvorschriften Ihres Aufenthaltsstaates bleiben unberührt.</p>',
+    withdrawIntro: '<h2>Vertrag widerrufen</h2>' +
+      '<h3>Widerrufsbelehrung</h3><p>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses. Um Ihr Widerrufsrecht auszuüben, genügt das nachstehende Formular. Wir bestätigen den Eingang unverzüglich auf einem dauerhaften Datenträger per E-Mail.</p>' +
+      '<h3>Folgen</h3><p>Im Falle eines wirksamen Widerrufs erstatten wir alle erhaltenen Zahlungen unverzüglich, spätestens binnen vierzehn Tagen. Bei einem Abonnement über Google Play wird die Erstattung über Google abgewickelt.</p>',
+    f: { name:'Name', email:'E-Mail-Adresse', contract:'Vertrag / Bestellnummer (falls bekannt)', contact:'Bevorzugter Kontaktweg', note:'Anmerkung (optional)', send:'Widerruf absenden', ok:'Ihr Widerruf ist eingegangen. Referenz: ', err:'Senden fehlgeschlagen. Bitte schreiben Sie an ' + LEGAL_ENTITY.email }
+  },
+  pl: {
+    impressum: '<h2>Dane firmy</h2>' + legalEntityBlock('pl') +
+      '<h3>Informacja o AI</h3><p>Analizy w AURIMIQ.ai generuje system sztucznej inteligencji. Mogą zawierać błędy i nie stanowią porady inwestycyjnej.</p>',
+    privacy: '<h2>Polityka prywatności</h2><h3>Administrator</h3>' + legalEntityBlock('pl') +
+      '<h3>Jakie dane przetwarzamy</h3><p>Adres e-mail i imię przy rejestracji, treść zapytań do AI wraz z odpowiedziami, status subskrypcji. <strong>Nie prosimy o dostęp do rachunku bankowego ani maklerskiego</strong> i nie otrzymujemy danych bankowych.</p>' +
+      '<h3>Odbiorcy i transfer poza EOG</h3><p>Korzystamy z: Supabase (uwierzytelnianie, baza), Render (hosting), Anthropic i Groq (generowanie analiz), Stripe i Google Play (płatności). Treść zapytań do AI jest <strong>przekazywana do dostawców w USA</strong> na podstawie standardowych klauzul umownych. Nie wpisuj w czacie danych, których nie chcesz przekazywać.</p>' +
+      '<h3>Twoje prawa</h3><p>Dostęp, sprostowanie, usunięcie, ograniczenie, przenoszenie, sprzeciw oraz skarga do Prezesa UODO. Konto usuniesz samodzielnie w aplikacji lub pisząc na ' + LEGAL_ENTITY.email + '.</p>',
+    terms: '<h2>Regulamin</h2>' +
+      '<h3>1. Usługa</h3><p>AURIMIQ.ai to narzędzie informacyjno-analityczne dla rynków finansowych: dane rynkowe, wyliczone wskaźniki techniczne i generowane przez AI omówienia.</p>' +
+      '<h3>2. To nie jest doradztwo inwestycyjne</h3><p>Serwis <strong>nie świadczy doradztwa inwestycyjnego</strong>. Nie wydajemy rekomendacji kupna, sprzedaży ani trzymania, nie podajemy cen docelowych. Decyzje inwestycyjne podejmujesz samodzielnie.</p>' +
+      '<h3>3. Poprawność danych</h3><p>Dane rynkowe pochodzą od podmiotów trzecich i mogą być opóźnione lub błędne. Teksty generowane przez AI mogą zawierać błędy. Nie gwarantujemy poprawności ani kompletności.</p>' +
+      '<h3>4. Subskrypcja</h3><p>Abonament miesięczny, odnawiany automatycznie do czasu rezygnacji. Subskrypcje z Google Play anulujesz w koncie Google, pozostałe w panelu płatności lub mailem na ' + LEGAL_ENTITY.email + '.</p>' +
+      '<h3>5. Prawo</h3><p>Prawo polskie. Bezwzględnie obowiązujące przepisy konsumenckie kraju Twojego pobytu pozostają nienaruszone.</p>',
+    withdrawIntro: '<h2>Odstąpienie od umowy</h2>' +
+      '<h3>Pouczenie</h3><p>Masz prawo odstąpić od umowy w terminie czternastu dni bez podania przyczyny. Termin biegnie od dnia zawarcia umowy. Wystarczy wypełnić poniższy formularz — potwierdzenie wyślemy niezwłocznie na podany adres e-mail.</p>' +
+      '<h3>Skutki</h3><p>W razie skutecznego odstąpienia zwrócimy otrzymane płatności niezwłocznie, nie później niż w ciągu czternastu dni. Przy subskrypcji z Google Play zwrot realizuje Google.</p>',
+    f: { name:'Imię i nazwisko', email:'Adres e-mail', contract:'Numer umowy lub zamówienia (jeśli znasz)', contact:'Preferowany kontakt', note:'Uwagi (opcjonalnie)', send:'Wyślij odstąpienie', ok:'Odstąpienie przyjęte. Numer referencyjny: ', err:'Nie udało się wysłać. Napisz na ' + LEGAL_ENTITY.email }
+  },
+  en: {
+    impressum: '<h2>Legal notice</h2>' + legalEntityBlock('en') +
+      '<h3>AI disclosure</h3><p>Analyses in AURIMIQ.ai are generated by an AI system. They may contain errors and are not investment advice.</p>',
+    privacy: '<h2>Privacy policy</h2><h3>Controller</h3>' + legalEntityBlock('en') +
+      '<h3>What we process</h3><p>Your email and name on registration, your questions to the AI together with the answers, and subscription status. We do <strong>not</strong> ask for access to your bank or brokerage account and receive no banking data.</p>' +
+      '<h3>Recipients and transfers</h3><p>We use Supabase (auth, database), Render (hosting), Anthropic and Groq (generating analyses), Stripe and Google Play (payments). Your questions to the AI are <strong>transferred to providers in the United States</strong> under standard contractual clauses. Do not enter anything in the chat that you would not want transferred.</p>' +
+      '<h3>Your rights</h3><p>Access, rectification, erasure, restriction, portability, objection, and complaint to a supervisory authority. You can delete your account in the app, or write to ' + LEGAL_ENTITY.email + '.</p>',
+    terms: '<h2>Terms of service</h2>' +
+      '<h3>1. Service</h3><p>AURIMIQ.ai is an information and analysis tool for financial markets: market data, computed technical indicators and AI-generated commentary.</p>' +
+      '<h3>2. Not investment advice</h3><p>The service provides <strong>no investment advice and no brokerage</strong>. It issues no buy, sell or hold recommendations and no price targets. Investment decisions are yours alone.</p>' +
+      '<h3>3. Accuracy</h3><p>Market data comes from third parties and may be delayed or wrong. AI-generated text may contain errors. No warranty of accuracy or completeness is given.</p>' +
+      '<h3>4. Subscription</h3><p>Monthly, renewing automatically until cancelled. Google Play subscriptions are cancelled in your Google account; others via the payment portal or by email to ' + LEGAL_ENTITY.email + '.</p>' +
+      '<h3>5. Law</h3><p>Polish law applies. Mandatory consumer protection rules of your country of residence remain unaffected.</p>',
+    withdrawIntro: '<h2>Withdraw from contract</h2>' +
+      '<h3>Right of withdrawal</h3><p>You have the right to withdraw from this contract within fourteen days without giving any reason. The period begins on the day the contract is concluded. The form below is sufficient — we confirm receipt promptly by email.</p>' +
+      '<h3>Effects</h3><p>On effective withdrawal we refund all payments received without undue delay and within fourteen days at the latest. For Google Play subscriptions the refund is handled by Google.</p>',
+    f: { name:'Name', email:'Email address', contract:'Contract or order number (if known)', contact:'Preferred contact', note:'Note (optional)', send:'Send withdrawal', ok:'Withdrawal received. Reference: ', err:'Sending failed. Please write to ' + LEGAL_ENTITY.email }
+  }
+};
+
+/* Jezyk: 1) window.AURIMIQ_LANG jesli ustawisz recznie,
+             2) atrybut lang w <html>,
+             3) jezyk przegladarki,
+             4) angielski. */
+function currentLegalLang() {
+  var l = window.AURIMIQ_LANG
+       || (document.documentElement.getAttribute('lang') || '').slice(0,2).toLowerCase()
+       || (navigator.language || 'en').slice(0,2).toLowerCase();
+  return LEGAL_TEXT[l] ? l : 'en';
+}
+
+function renderLegalBar() {
+  var l = currentLegalLang(), u = LEGAL_UI[l], bar = document.getElementById('legalBar');
+  if (!bar) return;
+  bar.innerHTML =
+    '<a onclick="openLegal(\'impressum\')">' + u.impressum + '</a>' +
+    '<a onclick="openLegal(\'privacy\')">' + u.privacy + '</a>' +
+    '<a onclick="openLegal(\'terms\')">' + u.terms + '</a>' +
+    '<a onclick="openLegal(\'withdraw\')"><strong>' + u.withdraw + '</strong></a>' +
+    '<a onclick="if(window.aurimiqCookieSettings)aurimiqCookieSettings()">Cookies</a>' +
+    '<span style="color:#4a5364">' + u.ai + '</span>';
+}
+
+function openLegal(kind) {
+  var l = currentLegalLang(), t = LEGAL_TEXT[l], box = document.getElementById('legalContent');
+  if (kind === 'withdraw') {
+    var f = t.f;
+    box.innerHTML = t.withdrawIntro +
+      '<label>' + f.name + ' *</label><input id="wrName">' +
+      '<label>' + f.email + ' *</label><input id="wrEmail" type="email">' +
+      '<label>' + f.contract + '</label><input id="wrContract">' +
+      '<label>' + f.contact + '</label><input id="wrContact">' +
+      '<label>' + f.note + '</label><textarea id="wrNote" rows="3"></textarea>' +
+      '<button class="wrsend" onclick="sendWiderruf()">' + f.send + '</button>' +
+      '<div id="wrResult"></div>';
+  } else {
+    box.innerHTML = t[kind];
+  }
+  document.getElementById('legalModal').classList.add('open');
+}
+function closeLegal() { document.getElementById('legalModal').classList.remove('open'); }
+
+function sendWiderruf() {
+  var l = currentLegalLang(), f = LEGAL_TEXT[l].f, out = document.getElementById('wrResult');
+  var body = {
+    name:     (document.getElementById('wrName').value || '').trim(),
+    email:    (document.getElementById('wrEmail').value || '').trim(),
+    contract: (document.getElementById('wrContract').value || '').trim(),
+    contact:  (document.getElementById('wrContact').value || '').trim(),
+    note:     (document.getElementById('wrNote').value || '').trim(),
+    lang:     l
+  };
+  if (!body.name || !body.email) { out.style.display='block'; out.style.background='#3a1f1f'; out.textContent = f.name + ' + ' + f.email; return; }
+  fetch(BACKEND_URL + '/api/widerruf', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+  }).then(function(r){ return r.json(); }).then(function(d){
+    out.style.display = 'block';
+    if (d && d.ok) { out.style.background = '#1f3a24'; out.textContent = f.ok + d.ref; }
+    else { out.style.background = '#3a1f1f'; out.textContent = f.err; }
+  }).catch(function(){
+    out.style.display = 'block'; out.style.background = '#3a1f1f'; out.textContent = f.err;
+  });
+}
+
+/* Doklejamy linki do istniejacej stopki, zamiast dodawac drugi pasek. */
+(function(){
+  var f = document.querySelector('footer');
+  if (!f) { document.body.insertAdjacentHTML('beforeend','<div id="legalBar"></div>'); }
+  else { var d=document.createElement('div'); d.id='legalBar'; d.style.flexBasis='100%'; f.appendChild(d); }
+  renderLegalBar();
+})();
+</script>
+
 </body>
 </html>
