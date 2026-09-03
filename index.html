@@ -718,9 +718,12 @@ var LEGAL_ENTITY = {
 };
 
 var LEGAL_UI = {
-  pl: { impressum:'Dane firmy', privacy:'Prywatność', terms:'Regulamin', withdraw:'Odstąpienie od umowy', ai:'Odpowiedzi generuje AI' },
-  en: { impressum:'Legal notice', privacy:'Privacy', terms:'Terms', withdraw:'Withdraw from contract', ai:'Answers are AI-generated' },
-  de: { impressum:'Impressum', privacy:'Datenschutz', terms:'AGB', withdraw:'Vertrag widerrufen', ai:'Antworten werden von KI erzeugt' }
+  pl: { impressum:'Dane firmy', privacy:'Prywatność', terms:'Regulamin', withdraw:'Odstąpienie od umowy', ai:'Odpowiedzi generuje AI',
+        dsc:'AURIMIQ dostarcza informacji finansowych i nie stanowi doradztwa inwestycyjnego. Nie uwzględnia Twojej sytuacji osobistej. Odpowiedzi generuje AI i mogą zawierać błędy.' },
+  en: { impressum:'Legal notice', privacy:'Privacy', terms:'Terms', withdraw:'Withdraw from contract', ai:'Answers are AI-generated',
+        dsc:'AURIMIQ provides financial information, not investment advice. Personal circumstances are not taken into account. Answers are AI-generated and may contain errors.' },
+  de: { impressum:'Impressum', privacy:'Datenschutz', terms:'AGB', withdraw:'Vertrag widerrufen', ai:'Antworten werden von KI erzeugt',
+        dsc:'AURIMIQ liefert Finanzinformationen und keine Anlageberatung. Es werden keine persönlichen Umstände berücksichtigt. Antworten werden von KI erzeugt und können Fehler enthalten.' }
 };
 
 function legalEntityBlock(l) {
@@ -797,9 +800,13 @@ var LEGAL_TEXT = {
              3) jezyk przegladarki,
              4) angielski. */
 function currentLegalLang() {
+  // Strona jest po angielsku, ale tresci prawne musza trafic do odwiedzajacego
+  // w JEGO jezyku - niemiecki gosc ma dostac Impressum i AGB po niemiecku.
+  // Dlatego jezyk przegladarki bije atrybut lang dokumentu, ktory tu zawsze
+  // wynosi "en" i wczesniej zjadal caly dalszy ciag warunku.
   var l = window.AURIMIQ_LANG
-       || (document.documentElement.getAttribute('lang') || '').slice(0,2).toLowerCase()
-       || (navigator.language || 'en').slice(0,2).toLowerCase();
+       || (navigator.language || '').slice(0,2).toLowerCase()
+       || (document.documentElement.getAttribute('lang') || 'en').slice(0,2).toLowerCase();
   return LEGAL_TEXT[l] ? l : 'en';
 }
 
@@ -812,7 +819,11 @@ function renderLegalBar() {
     '<a onclick="openLegal(\'terms\')">' + u.terms + '</a>' +
     '<a onclick="openLegal(\'withdraw\')"><strong>' + u.withdraw + '</strong></a>' +
     '<a onclick="if(window.aurimiqCookieSettings)aurimiqCookieSettings()">Cookies</a>' +
-    '<span style="color:#4a5364">' + u.ai + '</span>';
+    '<span style="color:#4a5364">' + u.ai + '</span>' +
+    // Widoczne zastrzezenie, nie schowane w regulaminie:
+    // AI Act Art. 50 + granica Anlageberatung wg Merkblatt BaFin 10.02.2025.
+    '<div style="flex-basis:100%;margin-top:10px;color:#4a5364;letter-spacing:0.02em;'
+      + 'line-height:1.6;text-transform:none">' + u.dsc + '</div>';
 }
 
 function openLegal(kind) {
