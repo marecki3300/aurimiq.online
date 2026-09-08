@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <!-- Pomiary NIE startuja tutaj.
      Google Analytics i Microsoft Clarity ladowaly sie w tym miejscu
@@ -17,8 +17,12 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="AURIMIQ.ai — Intelligent Wealth Terminal. Independent AI market analysis for crypto, stocks, commodities and forex. No account access, no commission."/>
-<title>AURIMIQ.ai — Intelligent Wealth Terminal</title>
+<meta name="description" content="AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe. Unabhängige Marktanalyse mit Kursen in Echtzeit. Kein Kontozugriff, keine Provision, keine Anlageberatung."/>
+<title>AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe</title>
+<link rel="alternate" hreflang="de" href="https://aurimiq.online/"/>
+<link rel="alternate" hreflang="en" href="https://aurimiq.online/?lang=en"/>
+<link rel="alternate" hreflang="pl" href="https://aurimiq.pl/"/>
+<link rel="alternate" hreflang="x-default" href="https://aurimiq.online/"/>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;700&family=Bebas+Neue&display=swap" rel="stylesheet"/>
 <style>
@@ -82,6 +86,18 @@ nav {
   padding: 10px 24px; text-decoration: none !important; transition: all .3s;
 }
 .nav-cta:hover { background: var(--gold2); transform: translateY(-1px); }
+/* Przelacznik jezyka. Niemiecki jest domyslny — angielski zostaje
+   jednym klikniecem dla reszty swiata, zamiast znikac na zawsze. */
+.lang-switch { display: flex; align-items: center; gap: 6px; }
+.lang-switch button {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 2px;
+  background: none; border: 0; padding: 4px 2px;
+  color: var(--text3); cursor: pointer; transition: color .25s;
+}
+.lang-switch button:hover { color: var(--gold2); }
+.lang-switch button[aria-current="true"] { color: var(--gold); font-weight: 700; }
+.lang-switch .lang-sep { color: var(--text3); font-family: 'JetBrains Mono', monospace; font-size: 10px; }
 .hero {
   position: relative; min-height: 100vh;
   display: flex; flex-direction: column;
@@ -300,8 +316,17 @@ nav {
 .t-cursor { display: inline-block; width: 7px; height: 13px; background: var(--gold); animation: blink 1s infinite; vertical-align: middle; }
 @keyframes blink { 0%,49%{opacity:1}50%,100%{opacity:0} }
 .pricing { padding: 120px 6vw; }
-.price-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 72px; max-width: 800px; margin-left: auto; margin-right: auto; }
+/* Liczba kolumn siedziala w atrybucie style="" przy samym elemencie, a styl
+   inline bije regule z arkusza — przez to @media(max-width:768px) nigdy nie
+   zdazyl zlozyc cennika do jednej kolumny i karta Pro wychodzila poza ekran
+   telefonu (126 px w wersji EN, 170 px po niemiecku). Reguly wracaja tutaj,
+   gdzie media query moze je nadpisac. */
+.price-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 72px; max-width: 800px; margin-left: auto; margin-right: auto; }
 .price-card { background: var(--dark2); padding: 48px 36px; position: relative; }
+/* Ten sam problem co przy cenniku: trzy kolumny instrukcji APK siedzialy
+   w style="" i na telefonie nie mialy jak sie zlozyc. */
+.apk-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: var(--border); border: 1px solid var(--border); }
 .price-card.featured { background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(6,8,14,0.8)); border: 1px solid var(--border2); margin: -1px; }
 .price-badge { position: absolute; top: -1px; right: 28px; background: var(--gold); color: var(--dark); font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 3px; text-transform: uppercase; padding: 4px 12px; font-weight: 700; }
 .price-tier { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--text3); margin-bottom: 20px; }
@@ -329,7 +354,12 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   .feat-grid { grid-template-columns: 1fr; }
   .demo-grid { grid-template-columns: 1fr; }
   .price-grid { grid-template-columns: 1fr; }
-  .nav-links { display: none; }
+  .apk-steps { grid-template-columns: 1fr; }
+  /* Na telefonie chowamy same linki nawigacji, ale przelacznik jezyka
+     zostaje — inaczej Niemiec z TikToka nie mialby jak wrocic do EN. */
+  .nav-links { display: flex; gap: 0; }
+  .nav-links > a { display: none; }
+  .nav-links > .lang-switch { display: flex; }
   footer { flex-direction: column; gap: 12px; text-align: center; }
   .sp-divider { display: none; }
 }
@@ -343,10 +373,15 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     AURIMIQ<span>.ai</span>
   </a>
   <div class="nav-links">
-    <a href="#features">Features</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#demo">Terminal</a>
-    <a href="https://aurimiq-ai.netlify.app" class="nav-cta" onclick="gtag('event','click',{event_category:'nav',event_label:'launch_terminal'})">LAUNCH TERMINAL &rarr;</a>
+    <a href="#features" data-i18n="nav.features">Funktionen</a>
+    <a href="#pricing" data-i18n="nav.pricing">Preise</a>
+    <a href="#demo" data-i18n="nav.demo">Terminal</a>
+    <a href="https://aurimiq-ai.netlify.app" class="nav-cta" data-i18n="nav.cta" onclick="gtag('event','click',{event_category:'nav',event_label:'launch_terminal'})">TERMINAL &Ouml;FFNEN &rarr;</a>
+    <div class="lang-switch">
+      <button type="button" data-setlang="de" aria-current="true">DE</button>
+      <span class="lang-sep">|</span>
+      <button type="button" data-setlang="en" aria-current="false">EN</button>
+    </div>
   </div>
 </nav>
 
@@ -356,14 +391,14 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   </video>
   <div class="hero-content">
     <img src="logo.png" alt="AURIMIQ.ai" class="hero-logo"/>
-    <div class="hero-eyebrow">Independent Market Intelligence</div>
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Unabh&auml;ngige Marktanalyse</div>
     <h1 class="hero-title">AURIMIQ</h1>
     <div class="hero-title-ai">intelligent wealth terminal</div>
-    <p class="hero-subtitle">Real-time Markets &middot; Claude AI &middot; DCF/LBO &middot; Portfolio</p>
+    <p class="hero-subtitle" data-i18n="hero.sub">Echtzeitkurse &middot; Claude AI &middot; DCF/LBO &middot; Portfolio</p>
 
   <!-- ZMIANA 1: Jedno główne CTA na desktop, APK tylko na mobile -->
     <div class="hero-btns">
-      <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span>TRY FREE — NO SIGN UP &rarr;</span></a>
+      <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span data-i18n="hero.btn">KOSTENLOS TESTEN — OHNE ANMELDUNG &rarr;</span></a>
             <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="btn-outline btn-apk hero-btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_hero'})">&#9654; GOOGLE PLAY</a>
       <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" class="btn-outline hero-btn-apk" style="font-size:9px" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_hero'})">&#128241; APK</a>
     </div>
@@ -374,18 +409,18 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
            ktorych nie da sie potwierdzic. Zastapione stwierdzeniami prawdziwymi
            z konstrukcji produktu — i mocniejszymi sprzedazowo. -->
       <div class="sp-item">
-        <span class="sp-num">NO</span>
-        <span class="sp-label">Bank Account Access</span>
+        <span class="sp-num" data-i18n="sp.1n">KEIN</span>
+        <span class="sp-label" data-i18n="sp.1l">Zugriff aufs Konto</span>
       </div>
       <div class="sp-divider"></div>
       <div class="sp-item">
-        <span class="sp-num">NO</span>
-        <span class="sp-label">Commission Ever</span>
+        <span class="sp-num" data-i18n="sp.2n">KEINE</span>
+        <span class="sp-label" data-i18n="sp.2l">Provision, niemals</span>
       </div>
       <div class="sp-divider"></div>
       <div class="sp-item">
-        <span class="sp-num">FREE</span>
-        <span class="sp-label">No Card Required</span>
+        <span class="sp-num" data-i18n="sp.3n">GRATIS</span>
+        <span class="sp-label" data-i18n="sp.3l">Ohne Kreditkarte</span>
       </div>
     </div>
 
@@ -409,17 +444,17 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
 
 <section class="features" id="features">
   <div class="section-header reveal">
-    <span class="section-tag">&rsaquo; Capabilities</span>
-    <h2 class="section-title">Everything you need<br/>to invest at the highest level</h2>
-    <p class="section-sub">Professional-grade intelligence, powered by Claude AI and real-time market data.</p>
+    <span class="section-tag" data-i18n="feat.tag">&rsaquo; Funktionen</span>
+    <h2 class="section-title" data-i18n-html="feat.title">Alles, was Sie brauchen,<br/>um M&auml;rkte selbst zu verstehen</h2>
+    <p class="section-sub" data-i18n="feat.sub">Analysen auf professionellem Niveau — mit Claude AI und Kursen in Echtzeit.</p>
   </div>
   <div class="feat-grid reveal">
-    <div class="feat"><div class="feat-num">01</div><span class="feat-icon">&#128202;</span><div class="feat-title">TRADINGVIEW CHARTS</div><div class="feat-desc">Professional candlestick charts with RSI, MACD, and Bollinger Bands. The same tools used on Wall Street trading floors.</div></div>
-    <div class="feat"><div class="feat-num">02</div><span class="feat-icon">&#129302;</span><div class="feat-title">CLAUDE AI ANALYST</div><div class="feat-desc">Powered by Anthropic's Claude Sonnet, with market data and technical indicators computed on our servers — so the model reads real numbers instead of its training memory. DCF and LBO models included.</div></div>
-    <div class="feat"><div class="feat-num">03</div><span class="feat-icon">&#9889;</span><div class="feat-title">LIVE MARKET DATA</div><div class="feat-desc">Real-time prices from Binance, CoinGecko, and Kraken. Triple redundancy ensures you always have data. Crypto, stocks, gold, and forex.</div></div>
-    <div class="feat"><div class="feat-num">04</div><span class="feat-icon">&#128188;</span><div class="feat-title">PORTFOLIO TRACKER</div><div class="feat-desc">Track all your positions with real-time P&amp;L calculations. Know exactly where you stand at every moment.</div></div>
-    <div class="feat"><div class="feat-num">05</div><span class="feat-icon">&#129518;</span><div class="feat-title">DCF &amp; LBO MODELS</div><div class="feat-desc">Built-in financial models trusted by investment banks. Calculate enterprise value, IRR, and equity returns in seconds.</div></div>
-    <div class="feat"><div class="feat-num">06</div><span class="feat-icon">&#128241;</span><div class="feat-title">ANDROID TERMINAL</div><div class="feat-desc">The full analysis terminal in your pocket. Available on Android with crypto, stocks, metals, and AI analysis.</div></div>
+    <div class="feat"><div class="feat-num">01</div><span class="feat-icon">&#128202;</span><div class="feat-title" data-i18n="feat.1t">TRADINGVIEW-CHARTS</div><div class="feat-desc" data-i18n="feat.1d">Professionelle Candlestick-Charts mit RSI, MACD und Bollinger-B&auml;ndern. Dieselben Werkzeuge, die auch im institutionellen Handel eingesetzt werden.</div></div>
+    <div class="feat"><div class="feat-num">02</div><span class="feat-icon">&#129302;</span><div class="feat-title" data-i18n="feat.2t">CLAUDE-KI-ANALYST</div><div class="feat-desc" data-i18n="feat.2d">Angetrieben von Claude Sonnet (Anthropic). Kursdaten und technische Indikatoren werden auf unseren Servern berechnet — das Modell liest also echte Zahlen statt seines Trainingsged&auml;chtnisses. DCF- und LBO-Modelle inklusive.</div></div>
+    <div class="feat"><div class="feat-num">03</div><span class="feat-icon">&#9889;</span><div class="feat-title" data-i18n="feat.3t">KURSE IN ECHTZEIT</div><div class="feat-desc" data-i18n="feat.3d">Echtzeitkurse von Binance, CoinGecko und Kraken. Dreifache Absicherung, damit immer Daten vorliegen. Krypto, Aktien, Gold und Devisen.</div></div>
+    <div class="feat"><div class="feat-num">04</div><span class="feat-icon">&#128188;</span><div class="feat-title" data-i18n="feat.4t">PORTFOLIO-&Uuml;BERSICHT</div><div class="feat-desc" data-i18n="feat.4d">Alle Positionen mit laufender Gewinn- und Verlustrechnung. Sie sehen jederzeit, wo Sie stehen.</div></div>
+    <div class="feat"><div class="feat-num">05</div><span class="feat-icon">&#129518;</span><div class="feat-title" data-i18n="feat.5t">DCF- &amp; LBO-MODELLE</div><div class="feat-desc" data-i18n="feat.5d">Eingebaute Bewertungsmodelle aus dem Investmentbanking. Unternehmenswert, IRR und Eigenkapitalrendite in Sekunden.</div></div>
+    <div class="feat"><div class="feat-num">06</div><span class="feat-icon">&#128241;</span><div class="feat-title" data-i18n="feat.6t">ANDROID-TERMINAL</div><div class="feat-desc" data-i18n="feat.6d">Das komplette Analyse-Terminal in der Hosentasche. F&uuml;r Android — Krypto, Aktien, Metalle und KI-Analyse.</div></div>
   </div>
 </section>
 
@@ -427,9 +462,9 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   <div class="demo-grid">
     <div class="demo-text">
       <div class="section-header">
-        <span class="section-tag">&rsaquo; AI Terminal Demo</span>
-        <h2 class="section-title">Ask anything.<br/>Get institutional-grade answers.</h2>
-        <p class="section-sub">From price analysis to full DCF models &mdash; AURIMIQ.ai handles everything with precision.</p>
+        <span class="section-tag" data-i18n="demo.tag">&rsaquo; KI-Terminal — Demo</span>
+        <h2 class="section-title" data-i18n-html="demo.title">Fragen Sie auf Deutsch.<br/>Antworten mit echten Kursen.</h2>
+        <p class="section-sub" data-i18n="demo.sub">Von der Kursanalyse bis zum vollst&auml;ndigen DCF-Modell &mdash; pr&auml;zise und nachvollziehbar.</p>
       </div>
     </div>
     <!-- ZMIANA 3: Demo terminal z dynamiczną ceną BTC -->
@@ -441,21 +476,21 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <div class="term-title">aurimiq.ai &mdash; claude.terminal</div>
       </div>
       <div class="term-body">
-        <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cmd">Technical analysis Bitcoin</span></div>
-        <div class="t-line" style="color:#3A4858;font-size:9px;letter-spacing:2px">CLAUDE SONNET &middot; BINANCE LIVE DATA</div>
+        <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cmd" data-i18n="term.cmd">Technische Analyse Bitcoin</span></div>
+        <div class="t-line" style="color:#3A4858;font-size:9px;letter-spacing:2px" data-i18n="term.engine">CLAUDE SONNET &middot; BINANCE-ECHTZEITDATEN</div>
         <br/>
-        <div class="t-line"><span class="t-label">CURRENT PRICE</span><span class="t-val" id="demo-btc-price">loading…</span></div>
-        <div class="t-line"><span class="t-label">24H CHANGE</span><span class="t-val" id="demo-change">&mdash;</span></div>
+        <div class="t-line"><span class="t-label" data-i18n="term.price">AKTUELLER KURS</span><span class="t-val" id="demo-btc-price" data-i18n="term.loading">l&auml;dt…</span></div>
+        <div class="t-line"><span class="t-label" data-i18n="term.change">VER&Auml;NDERUNG 24 H</span><span class="t-val" id="demo-change">&mdash;</span></div>
         <br/>
-        <div class="t-line"><span class="t-label">INDICATORS</span></div>
+        <div class="t-line"><span class="t-label" data-i18n="term.ind">INDIKATOREN</span></div>
         <div class="t-line">RSI (14): <span class="t-val" id="demo-rsi">&mdash;</span></div>
         <br/>
-        <div class="t-line"><span class="t-label">30-DAY LEVELS</span></div>
-        <div class="t-line">Support: <span class="t-up" id="demo-support">&mdash;</span></div>
-        <div class="t-line">Resistance: <span class="t-dn" id="demo-resistance">&mdash;</span></div>
+        <div class="t-line"><span class="t-label" data-i18n="term.levels">MARKEN 30 TAGE</span></div>
+        <div class="t-line"><span data-i18n="term.support">Unterst&uuml;tzung:</span> <span class="t-up" id="demo-support">&mdash;</span></div>
+        <div class="t-line"><span data-i18n="term.resist">Widerstand:</span> <span class="t-dn" id="demo-resistance">&mdash;</span></div>
         <br/>
-        <div class="t-line">Data source: <span class="t-val" id="demo-live-tag">&mdash;</span></div>
-        <div class="t-line" style="color:#3A4858;font-size:9px">Informational analysis &mdash; no buy or sell recommendations</div>
+        <div class="t-line"><span data-i18n="term.src">Datenquelle:</span> <span class="t-val" id="demo-live-tag">&mdash;</span></div>
+        <div class="t-line" style="color:#3A4858;font-size:9px" data-i18n="term.note">Informationsanalyse &mdash; keine Kauf- oder Verkaufsempfehlung</div>
         <div class="t-line"><span class="t-prompt">&rsaquo;</span> <span class="t-cursor"></span></div>
       </div>
     </div>
@@ -464,64 +499,64 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
 
 <section class="pricing" id="pricing">
   <div class="section-header reveal">
-    <span class="section-tag">&rsaquo; Investment Plans</span>
-    <h2 class="section-title">Transparent pricing.<br/>No hidden fees.</h2>
+    <span class="section-tag" data-i18n="pr.tag">&rsaquo; Tarife</span>
+    <h2 class="section-title" data-i18n-html="pr.title">Transparente Preise.<br/>Keine versteckten Kosten.</h2>
   </div>
-  <div class="price-grid reveal" style="grid-template-columns:repeat(3,1fr)">
+  <div class="price-grid reveal">
     <div class="price-card">
       <div class="price-tier">Free</div>
       <div class="price-amount">0<span style="font-size:32px;color:var(--text3)">&euro;</span></div>
-      <div class="price-period">FOREVER FREE</div>
+      <div class="price-period" data-i18n="pr.f.period">DAUERHAFT KOSTENLOS</div>
       <ul class="price-list">
-        <li>1 free AI query per day</li>
-        <li>TradingView charts</li>
-        <li>Live crypto &amp; stock prices</li>
-        <li class="off">Simple Mode 🧒</li>
-        <li class="off">Heatmaps &amp; news</li>
-        <li class="off">DCF/LBO models</li>
+        <li data-i18n="pr.f.1">1 KI-Anfrage pro Tag</li>
+        <li data-i18n="pr.f.2">TradingView-Charts</li>
+        <li data-i18n="pr.f.3">Krypto- und Aktienkurse in Echtzeit</li>
+        <li class="off" data-i18n="pr.f.4">Einfacher Modus 🧒</li>
+        <li class="off" data-i18n="pr.f.5">Heatmaps &amp; Nachrichten</li>
+        <li class="off" data-i18n="pr.f.6">DCF-/LBO-Modelle</li>
       </ul>
-      <button class="price-btn ghost" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'start_free'})">START FREE &rarr;</button>
+      <button class="price-btn ghost" data-i18n="pr.f.btn" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'start_free'})">KOSTENLOS STARTEN &rarr;</button>
     </div>
     <div class="price-card">
       <div class="price-tier">Lite</div>
       <div class="price-amount">5<span style="font-size:32px">&euro;</span></div>
-      <div class="price-period">PER MONTH</div>
+      <div class="price-period" data-i18n="pr.month">PRO MONAT</div>
       <ul class="price-list">
-        <li>25 AI queries per day</li>
-        <li>TradingView + indicators (RSI, MACD)</li>
-        <li>Simple Mode 🧒</li>
-        <li>Heatmaps, news, calendar</li>
-        <li>Live FX rates</li>
-        <li class="off">Unlimited queries</li>
-        <li class="off">PDF report export</li>
+        <li data-i18n="pr.l.1">25 KI-Anfragen pro Tag</li>
+        <li data-i18n="pr.l.2">TradingView + Indikatoren (RSI, MACD)</li>
+        <li data-i18n="pr.l.3">Einfacher Modus 🧒</li>
+        <li data-i18n="pr.l.4">Heatmaps, Nachrichten, Kalender</li>
+        <li data-i18n="pr.l.5">Devisenkurse in Echtzeit</li>
+        <li class="off" data-i18n="pr.l.6">Unbegrenzte Anfragen</li>
+        <li class="off" data-i18n="pr.l.7">PDF-Export der Berichte</li>
       </ul>
-      <button class="price-btn ghost" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_lite'})">CHOOSE LITE &rarr;</button>
+      <button class="price-btn ghost" data-i18n="pr.l.btn" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_lite'})">LITE W&Auml;HLEN &rarr;</button>
     </div>
     <div class="price-card featured">
-      <div class="price-badge">MOST POPULAR</div>
+      <div class="price-badge" data-i18n="pr.badge">AM BELIEBTESTEN</div>
       <div class="price-tier">Pro</div>
       <div class="price-amount">12<span style="font-size:32px">&euro;</span></div>
-      <div class="price-period">PER MONTH</div>
+      <div class="price-period" data-i18n="pr.month2">PRO MONAT</div>
       <ul class="price-list">
-        <li>Unlimited Claude AI queries</li>
-        <li>TradingView + all indicators</li>
-        <li>Simple Mode 🧒 + heatmaps</li>
-        <li>Unlimited price alerts</li>
-        <li>DCF &amp; LBO calculators</li>
-        <li>PDF report export</li>
-        <li>Live news feed</li>
-        <li>Android terminal app</li>
+        <li data-i18n="pr.p.1">Unbegrenzte Claude-KI-Anfragen</li>
+        <li data-i18n="pr.p.2">TradingView + alle Indikatoren</li>
+        <li data-i18n="pr.p.3">Einfacher Modus 🧒 + Heatmaps</li>
+        <li data-i18n="pr.p.4">Unbegrenzte Kursalarme</li>
+        <li data-i18n="pr.p.5">DCF- &amp; LBO-Rechner</li>
+        <li data-i18n="pr.p.6">PDF-Export der Berichte</li>
+        <li data-i18n="pr.p.7">Nachrichten in Echtzeit</li>
+        <li data-i18n="pr.p.8">Android-App</li>
       </ul>
-      <button class="price-btn solid" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_pro'})">ACTIVATE PRO &rarr;</button>
+      <button class="price-btn solid" data-i18n="pr.p.btn" onclick="window.location='https://aurimiq-ai.netlify.app';gtag('event','click',{event_category:'pricing',event_label:'activate_pro'})">PRO AKTIVIEREN &rarr;</button>
     </div>
   </div>
 </section>
 
 <section class="cta">
-  <h2 class="cta-title reveal">No account access.<br/>No commission.<br/>No conflict of interest.</h2>
-  <p class="cta-sub reveal">We sell no products &middot; We take no commission &middot; We never touch your account</p>
+  <h2 class="cta-title reveal" data-i18n-html="cta.title">Kein Kontozugriff.<br/>Keine Provision.<br/>Kein Interessenkonflikt.</h2>
+  <p class="cta-sub reveal" data-i18n="cta.sub">Wir verkaufen keine Finanzprodukte &middot; Wir nehmen keine Provision &middot; Wir fassen Ihr Depot nicht an</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
-    <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_bottom'})"><span>ENTER TERMINAL &rarr;</span></a>
+    <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_bottom'})"><span data-i18n="cta.btn">TERMINAL &Ouml;FFNEN &rarr;</span></a>
         <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_bottom'})">&#9654; GOOGLE PLAY</a>
     <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" class="btn-outline" style="font-size:9px" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_bottom'})">&#128241; APK</a>
   </div>
@@ -529,15 +564,15 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
 
 <section style="padding:80px 6vw;background:var(--dark2);border-top:1px solid var(--border)">
   <div style="max-width:600px;margin:0 auto;text-align:center">
-      <a href="https://play.google.com/store/apps/details?id=com.aurimiq" style="display:inline-block;margin-bottom:24px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_install_guide'})">&#9654; GET IT ON GOOGLE PLAY</a>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--gold);display:block;margin-bottom:16px">&rsaquo; ALTERNATIVE: MANUAL APK INSTALL</span>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold2);margin-bottom:32px">How to install the APK?</h3>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border)">
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">01</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">DOWNLOAD</div><div style="font-size:12px;color:var(--text2);font-weight:300">Tap "Download APK" and save the file to your phone</div></div>
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">02</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">ALLOW</div><div style="font-size:12px;color:var(--text2);font-weight:300">Settings &rarr; Security &rarr; "Unknown sources" &rarr; enable</div></div>
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">03</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px">INSTALL</div><div style="font-size:12px;color:var(--text2);font-weight:300">Open the downloaded file and tap "Install"</div></div>
+      <a href="https://play.google.com/store/apps/details?id=com.aurimiq" style="display:inline-block;margin-bottom:24px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_install_guide'})" data-i18n="apk.play">&#9654; BEI GOOGLE PLAY LADEN</a>
+    <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--gold);display:block;margin-bottom:16px" data-i18n="apk.alt">&rsaquo; ALTERNATIVE: APK MANUELL INSTALLIEREN</span>
+    <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold2);margin-bottom:32px" data-i18n="apk.h">Wie installiere ich die APK?</h3>
+    <div class="apk-steps">
+      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">01</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px" data-i18n="apk.1t">HERUNTERLADEN</div><div style="font-size:12px;color:var(--text2);font-weight:300" data-i18n="apk.1d">Auf &bdquo;APK herunterladen&ldquo; tippen und die Datei auf dem Telefon speichern</div></div>
+      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">02</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px" data-i18n="apk.2t">ERLAUBEN</div><div style="font-size:12px;color:var(--text2);font-weight:300" data-i18n="apk.2d">Einstellungen &rarr; Sicherheit &rarr; &bdquo;Unbekannte Quellen&ldquo; &rarr; aktivieren</div></div>
+      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">03</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px" data-i18n="apk.3t">INSTALLIEREN</div><div style="font-size:12px;color:var(--text2);font-weight:300" data-i18n="apk.3d">Die geladene Datei &ouml;ffnen und auf &bdquo;Installieren&ldquo; tippen</div></div>
     </div>
-    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" style="display:inline-block;margin-top:28px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_install_guide'})">&#128241; DOWNLOAD AURIMIQ.ai APK &rarr;</a>
+    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" style="display:inline-block;margin-top:28px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_install_guide'})" data-i18n="apk.dl">&#128241; AURIMIQ.ai APK HERUNTERLADEN &rarr;</a>
   </div>
 </section>
 
@@ -545,10 +580,195 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   <div class="footer-logo">AURIMIQ.ai</div>
   <div>INTELLIGENT WEALTH TERMINAL &middot; &copy; 2026</div>
   <div>
-    Not financial advice. Trade responsibly. &middot; 
-    <a href="delete-account.html" style="color:var(--gold);text-decoration:none;">Delete Account</a>
+    <span data-i18n="foot.dsc">Keine Anlageberatung. Handeln Sie eigenverantwortlich.</span> &middot;
+    <a href="delete-account.html" style="color:var(--gold);text-decoration:none;" data-i18n="foot.del">Konto l&ouml;schen</a>
   </div>
 </footer>
+
+<!-- ══════════════════════════════════════════════════════════════
+     WARSTWA JEZYKOWA — dodana 08.09.2026
+     Niemcy sa rynkiem pierwszym, wiec NIEMIECKI jest jezykiem
+     zrodlowym strony: stoi wprost w HTML. Dzieki temu odwiedzajacy
+     bez JS, crawler Google i podglad linku na TikToku widza niemiecki,
+     a nie angielski podmieniany dopiero skryptem.
+     Angielski siedzi w slowniku ponizej i wchodzi na zadanie.
+     Powrot na niemiecki idzie z migawki oryginalnego DOM — nie ma
+     drugiej kopii niemieckich tekstow, ktora moglaby sie rozjechac.
+     ══════════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  var EN = {
+    'nav.features':'Features', 'nav.pricing':'Pricing', 'nav.demo':'Terminal',
+    'nav.cta':'LAUNCH TERMINAL →',
+
+    'hero.eyebrow':'Independent Market Intelligence',
+    'hero.sub':'Real-time Markets · Claude AI · DCF/LBO · Portfolio',
+    'hero.btn':'TRY FREE — NO SIGN UP →',
+
+    'sp.1n':'NO',   'sp.1l':'Bank Account Access',
+    'sp.2n':'NO',   'sp.2l':'Commission Ever',
+    'sp.3n':'FREE', 'sp.3l':'No Card Required',
+
+    'feat.tag':'› Capabilities',
+    'feat.title':'Everything you need<br/>to invest at the highest level',
+    'feat.sub':'Professional-grade intelligence, powered by Claude AI and real-time market data.',
+    'feat.1t':'TRADINGVIEW CHARTS',
+    'feat.1d':'Professional candlestick charts with RSI, MACD, and Bollinger Bands. The same tools used on Wall Street trading floors.',
+    'feat.2t':'CLAUDE AI ANALYST',
+    'feat.2d':'Powered by Anthropic’s Claude Sonnet, with market data and technical indicators computed on our servers — so the model reads real numbers instead of its training memory. DCF and LBO models included.',
+    'feat.3t':'LIVE MARKET DATA',
+    'feat.3d':'Real-time prices from Binance, CoinGecko, and Kraken. Triple redundancy ensures you always have data. Crypto, stocks, gold, and forex.',
+    'feat.4t':'PORTFOLIO TRACKER',
+    'feat.4d':'Track all your positions with real-time P&L calculations. Know exactly where you stand at every moment.',
+    'feat.5t':'DCF & LBO MODELS',
+    'feat.5d':'Built-in financial models trusted by investment banks. Calculate enterprise value, IRR, and equity returns in seconds.',
+    'feat.6t':'ANDROID TERMINAL',
+    'feat.6d':'The full analysis terminal in your pocket. Available on Android with crypto, stocks, metals, and AI analysis.',
+
+    'demo.tag':'› AI Terminal Demo',
+    'demo.title':'Ask anything.<br/>Get institutional-grade answers.',
+    'demo.sub':'From price analysis to full DCF models — AURIMIQ.ai handles everything with precision.',
+
+    'term.cmd':'Technical analysis Bitcoin',
+    'term.engine':'CLAUDE SONNET · BINANCE LIVE DATA',
+    'term.price':'CURRENT PRICE', 'term.loading':'loading…',
+    'term.change':'24H CHANGE', 'term.ind':'INDICATORS',
+    'term.levels':'30-DAY LEVELS', 'term.support':'Support:',
+    'term.resist':'Resistance:', 'term.src':'Data source:',
+    'term.note':'Informational analysis — no buy or sell recommendations',
+
+    'pr.tag':'› Investment Plans',
+    'pr.title':'Transparent pricing.<br/>No hidden fees.',
+    'pr.f.period':'FOREVER FREE',
+    'pr.f.1':'1 free AI query per day', 'pr.f.2':'TradingView charts',
+    'pr.f.3':'Live crypto & stock prices', 'pr.f.4':'Simple Mode 🧒',
+    'pr.f.5':'Heatmaps & news', 'pr.f.6':'DCF/LBO models',
+    'pr.f.btn':'START FREE →',
+    'pr.month':'PER MONTH', 'pr.month2':'PER MONTH',
+    'pr.l.1':'25 AI queries per day', 'pr.l.2':'TradingView + indicators (RSI, MACD)',
+    'pr.l.3':'Simple Mode 🧒', 'pr.l.4':'Heatmaps, news, calendar',
+    'pr.l.5':'Live FX rates', 'pr.l.6':'Unlimited queries',
+    'pr.l.7':'PDF report export', 'pr.l.btn':'CHOOSE LITE →',
+    'pr.badge':'MOST POPULAR',
+    'pr.p.1':'Unlimited Claude AI queries', 'pr.p.2':'TradingView + all indicators',
+    'pr.p.3':'Simple Mode 🧒 + heatmaps', 'pr.p.4':'Unlimited price alerts',
+    'pr.p.5':'DCF & LBO calculators', 'pr.p.6':'PDF report export',
+    'pr.p.7':'Live news feed', 'pr.p.8':'Android terminal app',
+    'pr.p.btn':'ACTIVATE PRO →',
+
+    'cta.title':'No account access.<br/>No commission.<br/>No conflict of interest.',
+    'cta.sub':'We sell no products · We take no commission · We never touch your account',
+    'cta.btn':'ENTER TERMINAL →',
+
+    'apk.play':'▶ GET IT ON GOOGLE PLAY',
+    'apk.alt':'› ALTERNATIVE: MANUAL APK INSTALL',
+    'apk.h':'How to install the APK?',
+    'apk.1t':'DOWNLOAD', 'apk.1d':'Tap “Download APK” and save the file to your phone',
+    'apk.2t':'ALLOW',    'apk.2d':'Settings → Security → “Unknown sources” → enable',
+    'apk.3t':'INSTALL',  'apk.3d':'Open the downloaded file and tap “Install”',
+    'apk.dl':'📱 DOWNLOAD AURIMIQ.ai APK →',
+
+    'foot.dsc':'Not financial advice. Trade responsibly.',
+    'foot.del':'Delete Account',
+
+    'js.ob':'overbought', 'js.os':'oversold', 'js.nu':'neutral',
+    'js.lo':'(30d low)', 'js.hi':'(30d high)',
+    'js.src':'Binance daily candles · computed live',
+
+    'meta.title':'AURIMIQ.ai — Intelligent Wealth Terminal',
+    'meta.desc':'AURIMIQ.ai — Intelligent Wealth Terminal. Independent AI market analysis for crypto, stocks, commodities and forex. No account access, no commission.'
+  };
+
+  /* Niemieckiego slownika nie ma celowo — niemiecki JEST w HTML.
+     Trzymamy tylko to, czego nie da sie odczytac z DOM. */
+  var DE_EXTRA = {
+    'js.ob':'überkauft', 'js.os':'überverkauft', 'js.nu':'neutral',
+    'js.lo':'(Tief 30 T.)', 'js.hi':'(Hoch 30 T.)',
+    'js.src':'Binance-Tageskerzen · live berechnet',
+    'meta.title':'AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe',
+    'meta.desc':'AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe. Unabhängige Marktanalyse mit Kursen in Echtzeit. Kein Kontozugriff, keine Provision, keine Anlageberatung.'
+  };
+
+  /* Migawka niemieckiego z DOM, robiona raz, zanim cokolwiek podmienimy. */
+  var DE = {};
+  document.querySelectorAll('[data-i18n]').forEach(function (el) {
+    DE[el.getAttribute('data-i18n')] = el.textContent;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+    DE[el.getAttribute('data-i18n-html')] = el.innerHTML;
+  });
+  Object.keys(DE_EXTRA).forEach(function (k) { DE[k] = DE_EXTRA[k]; });
+
+  var DICT = { de: DE, en: EN };
+  var uiLang = 'de';
+
+  /* Uzywane tez przez demo terminala (loadRealIndicators). */
+  window.T = function (key, fallback) {
+    var d = DICT[uiLang] || DICT.de;
+    return (d && d[key] != null) ? d[key] : (fallback != null ? fallback : key);
+  };
+
+  function apply(lang) {
+    uiLang = (lang === 'de') ? 'de' : 'en';
+    var d = DICT[uiLang];
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var v = d[el.getAttribute('data-i18n')];
+      if (v != null) el.textContent = v;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
+      var v = d[el.getAttribute('data-i18n-html')];
+      if (v != null) el.innerHTML = v;
+    });
+
+    document.documentElement.setAttribute('lang', uiLang);
+    if (d['meta.title']) document.title = d['meta.title'];
+    var m = document.querySelector('meta[name="description"]');
+    if (m && d['meta.desc']) m.setAttribute('content', d['meta.desc']);
+
+    document.querySelectorAll('.lang-switch button[data-setlang]').forEach(function (b) {
+      b.setAttribute('aria-current', b.getAttribute('data-setlang') === uiLang ? 'true' : 'false');
+    });
+  }
+
+  /* Jezyk tresci prawnej moze byc SZERSZY niz jezyk strony: polski gosc
+     dostaje angielski interfejs, ale polska polityke prywatnosci —
+     tak samo jak przed ta zmiana. Nie zabieramy mu tego. */
+  function setLegalLang(l) {
+    window.AURIMIQ_LANG = l;
+    if (typeof window.renderLegalBar === 'function') window.renderLegalBar();
+  }
+
+  function resolve() {
+    var q = '';
+    try { q = (new URLSearchParams(location.search).get('lang') || ''); } catch (e) {}
+    var saved = '';
+    try { saved = localStorage.getItem('aurimiq_lang') || ''; } catch (e) {}
+    var nav = (navigator.language || navigator.userLanguage || '');
+    var l = (q || saved || nav || 'de').slice(0, 2).toLowerCase();
+    return (l === 'de' || l === 'en' || l === 'pl') ? l : 'en';
+  }
+
+  window.setSiteLang = function (l, remember) {
+    apply(l === 'de' ? 'de' : 'en');
+    setLegalLang(l);
+    if (remember) { try { localStorage.setItem('aurimiq_lang', l); } catch (e) {} }
+    if (typeof gtag === 'function') {
+      gtag('event', 'click', { event_category: 'lang', event_label: l });
+    }
+  };
+
+  document.querySelectorAll('.lang-switch button[data-setlang]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      window.setSiteLang(b.getAttribute('data-setlang'), true);
+    });
+  });
+
+  var start = resolve();
+  apply(start === 'de' ? 'de' : 'en');
+  window.AURIMIQ_LANG = start;   /* stopka prawna przeczyta to sama przy starcie */
+})();
+</script>
 
 <script>
 var observer = new IntersectionObserver(function(entries) {
@@ -637,11 +857,14 @@ async function loadRealIndicators() {
     var hi30 = Math.max.apply(null, highs.slice(-30));
     var fmt = function(v){ return '$' + Math.round(v).toLocaleString('en-US'); };
 
+    // Etykiety demo ida za jezykiem strony. window.T() dostarcza warstwa I18N
+    // ponizej; gdyby jej zabraklo, zostaje angielski i demo nadal dziala.
+    var T = window.T || function(k, d){ return d; };
     document.getElementById('demo-rsi').textContent =
-      rsi.toFixed(1) + ' — ' + (rsi > 70 ? 'overbought' : rsi < 30 ? 'oversold' : 'neutral');
-    document.getElementById('demo-support').textContent = fmt(lo30) + ' (30d low)';
-    document.getElementById('demo-resistance').textContent = fmt(hi30) + ' (30d high)';
-    document.getElementById('demo-live-tag').textContent = 'Binance daily candles · computed live';
+      rsi.toFixed(1) + ' — ' + (rsi > 70 ? T('js.ob','overbought') : rsi < 30 ? T('js.os','oversold') : T('js.nu','neutral'));
+    document.getElementById('demo-support').textContent = fmt(lo30) + ' ' + T('js.lo','(30d low)');
+    document.getElementById('demo-resistance').textContent = fmt(hi30) + ' ' + T('js.hi','(30d high)');
+    document.getElementById('demo-live-tag').textContent = T('js.src','Binance daily candles · computed live');
   } catch (e) { console.log('Indicators error:', e); }
 }
 
