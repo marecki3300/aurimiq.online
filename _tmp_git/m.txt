@@ -1,0 +1,43 @@
+fix: zgoda przed pomiarami, Impressum, koniec z Bloombergiem
+
+Trzy dokumenty mowily to samo nieprawdziwe zdanie:
+- baner: "This site uses only essential cookies — no tracking, no ads,
+  no third-party profiling"
+- privacy-policy, sekcja 3: "We do not use advertising, remarketing, or
+  tracking cookies such as Google Analytics or Meta Pixel"
+- privacy-policy, skrot: "we do not profile users"
+
+A strona ladowala w <head> DWIE wlasnosci Google Analytics oraz Microsoft
+Clarity, bezwarunkowo, zanim baner sie pokazal. Clarity nagrywa ruchy
+myszy i klikniecia i nie byl wymieniony w polityce ani razu. Przyciski
+banera nie robily nic poza ustawieniem ciasteczka.
+
+Zmiany:
+- GA i Clarity wyciete z <head>; uruchamia je cookie-banner-online.js
+  i wylacznie po zgodzie. Zostaje atrapa gtag(), bo strona wola
+  gtag('event', ...) w wielu miejscach
+- baner napisany od nowa: wymienia GA i Clarity z nazwy, uprzedza
+  o nagrywaniu sesji, odmowa rownie latwa jak zgoda (§ 25 TDDDG),
+  dziala po polsku, angielsku i niemiecku
+- link "Cookies" w stopce pozwala wycofac zgode
+- privacy-policy: sekcja 3 opisuje realny stan, doszly GA, Clarity i Groq
+  do listy uslug, rozszerzona lista transferow do USA, pelny adres
+  administratora
+- Impressum, AGB i formularz odstapienia (§ 356a BGB) w stopce, PL/EN/DE
+- Bloomberg usuniety z czterech miejsc; haslo zastapione tym, co wynika
+  z konstrukcji produktu: bez dostepu do konta, bez prowizji
+- "16 Countries" i "1K+ AI Queries" — liczby niemozliwe do potwierdzenia —
+  zastapione stwierdzeniami prawdziwymi z konstrukcji produktu
+- demo terminala liczy PRAWDZIWY RSI(14) wg Wildera i realne ekstrema
+  30 sesji ze swiec Binance. Wczesniej "RSI" bylo wyliczane jako
+  50 + zmiana24h*3, a "30-DAY LEVELS" jako cena +/-3% i +/-5%, wszystko
+  podpisane "Binance - live"
+- z paska notowan usuniete recznie wpisane ceny GOLD, NVDA i AAPL,
+  plynace obok danych pobieranych na zywo
+
+Weryfikacja w Chromium: przed decyzja ZERO zadan do googletagmanager
+i clarity.ms, po odmowie zero, po odswiezeniu baner sie nie powtarza,
+po zgodzie oba sie ladują.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01QFzUjb1TKkxSgYaEkr5m4S

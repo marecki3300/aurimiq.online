@@ -1,0 +1,26 @@
+aurimiq.online: niemiecki jako jezyk zrodlowy + przelacznik DE/EN
+
+Niemcy sa rynkiem pierwszym, wiec niemiecki stoi teraz wprost w HTML
+(lang="de", niemiecki title i meta description, hreflang de/en/pl).
+Odwiedzajacy bez JS, crawler Google i podglad linku na TikToku widza
+niemiecki, a nie angielski podmieniany dopiero skryptem.
+
+- warstwa data-i18n: 87 wezlow tekstowych, slownik EN 1:1 z poprzednia
+  trescia strony, powrot na niemiecki z migawki DOM (bez drugiej kopii
+  niemieckich tekstow, ktora moglaby sie rozjechac)
+- przelacznik DE | EN w nawigacji, widoczny takze na telefonie,
+  wybor zapamietany w localStorage, ?lang=en wymusza angielski
+- teksty DE pisane pod rynek niemiecki, nie tlumaczone 1:1
+- stopka prawna idzie za jezykiem strony; polski gosc nadal dostaje
+  polska polityke prywatnosci mimo angielskiego interfejsu
+- naprawione: liczba kolumn cennika i instrukcji APK siedziala w
+  atrybucie style="", ktory bije regule z arkusza, wiec
+  @media(max-width:768px) nigdy nie skladal ich do jednej kolumny.
+  Karta Pro wychodzila poza ekran telefonu o 126 px (EN) / 170 px (DE).
+  Regula wrocila do CSS.
+
+Test regresyjny Playwright: 53/53 (DE, EN, PL, przelacznik w obie
+strony, 3 rozdzielczosci, porownanie z poprzednia wersja strony).
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01QFzUjb1TKkxSgYaEkr5m4S
