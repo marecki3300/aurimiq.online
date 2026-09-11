@@ -1,0 +1,21 @@
+# Katalog roboczy po operacjach gita wykonywanych zdalnie.
+# Shell pomostowy nie ma na Windowsie prawa kasowac plikow, wiec blokady
+# gita (index.lock, HEAD.lock, maintenance.lock, tmp_obj_*) sa tam
+# PRZENOSZONE zamiast usuwane. To smieci — mozna skasowac caly katalog
+# recznie w dowolnym momencie, nic od niego nie zalezy.
+_tmp_git/
+
+# Cudze repozytorium (szablon Bootstrap) sklonowane do srodka tego folderu.
+# Ma wlasny .git, wiec git i tak nie potrafi go wchlonac — a gdyby sie
+# udalo, GitHub Pages opublikowalby pod Twoja domena megabajt cudzej
+# strony pod adresem /HTML-Starter-Templates/.
+/HTML-Starter-Templates/
+
+# Puste pliki powstale po sklejeniu dwoch komend w jedna linie w cmd.
+/cd
+/git
+
+# Systemowe
+Thumbs.db
+.DS_Store
+desktop.ini
