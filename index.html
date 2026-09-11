@@ -211,7 +211,16 @@ nav {
 
    Dopoki plik nie lezy w katalogu, onerror przelacza przycisk na stary
    wyglad tekstowy, wiec strona nigdy nie pokazuje zepsutego obrazka. */
-.gplay { display: inline-block; line-height: 0; text-decoration: none; }
+.gplay {
+  /* position+z-index NIE sa kosmetyka — sekcja .cta ma dekoracyjna poswiate
+     jako ::before z position:absolute. Bez wlasnego kontekstu ukladania
+     odznaka ladowala POD ta poswiata i to ona przechwytywala klikniecie
+     (elementFromPoint zwracal SECTION.cta zamiast linku). Przycisk wygladal
+     normalnie i byl nieklikalny. Zloty przycisk obok dziala od zawsze
+     wlasnie dlatego, ze .btn-gold ma position:relative. */
+  display: inline-block; line-height: 0; text-decoration: none;
+  position: relative; z-index: 1;
+}
 .gplay-img { height: 52px; width: auto; display: block; }
 .gplay-alt { display: none; }
 .gplay.gplay-off .gplay-img { display: none; }
