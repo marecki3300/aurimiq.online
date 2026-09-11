@@ -153,6 +153,16 @@ nav {
   letter-spacing: 12px; color: var(--gold); margin-bottom: 32px;
   animation: fadeUp .8s .15s ease both;
 }
+/* Obietnica po niemiecku w miejscu po angielskim "intelligent wealth
+   terminal". Zdania nie da sie rozstrzelic o 12 px jak trzech slow —
+   stad wlasna klasa z normalnym odstepem i zawijaniem. */
+.hero-claim {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 4.2vw, 46px); font-weight: 300;
+  letter-spacing: 0.5px; line-height: 1.2;
+  color: var(--gold2); margin: 0 auto 22px; max-width: 22ch;
+  animation: fadeUp .8s .15s ease both;
+}
 .hero-subtitle {
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
@@ -189,9 +199,41 @@ nav {
 .btn-apk { border-color: rgba(201,168,76,0.6) !important; background: rgba(201,168,76,0.08) !important; }
 .btn-apk:hover { background: rgba(201,168,76,0.15) !important; }
 
+/* ── OFICJALNA ODZNAKA GOOGLE PLAY ────────────────────────────────
+   Wytyczne Google zabraniaja przerabiania odznaki: "Don't change the
+   badge color", "Don't remove or rearrange badge elements, or otherwise
+   adjust the badge in any way". Wlasny przycisk w ich kolorach bylby
+   naruszeniem znaku towarowego — i gorzej rozpoznawalny niz oryginal.
+   Dlatego wstawiamy plik pobrany z Partner Marketing Hub, nietkniety.
+
+   Wymogi, ktore ten CSS spelnia:
+   - minimalna wysokosc 28 px (mamy 52 px)
+   - wolne pole dookola: 1/4 wysokosci = 13 px (gap w .hero-btns to 16 px)
+   - tlo jednolite, z kontrastem — czarne tlo strony to spelnia
+
+   Dopoki plik nie lezy w katalogu, onerror przelacza przycisk na stary
+   wyglad tekstowy, wiec strona nigdy nie pokazuje zepsutego obrazka. */
+.gplay { display: inline-block; line-height: 0; text-decoration: none; }
+.gplay-img { height: 52px; width: auto; display: block; }
+.gplay-alt { display: none; }
+.gplay.gplay-off .gplay-img { display: none; }
+.gplay.gplay-off .gplay-alt {
+  display: inline-block; line-height: normal;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold2); border: 1px solid rgba(201,168,76,0.6);
+  background: rgba(201,168,76,0.08);
+  padding: 18px 36px; transition: all .3s;
+}
+.gplay.gplay-off:hover .gplay-alt { background: rgba(201,168,76,0.15); }
+@media(max-width: 768px) { .gplay-img { height: 46px; } }
+
 /* ── SOCIAL PROOF ── */
 .hero-social-proof {
-  margin-top: 40px;
+  /* Pasek stoi teraz NAD przyciskiem, wiec odstepy sa odwrocone:
+     mniej z gory (podtytul ma juz 52 px), wiecej z dolu, zeby etykiety
+     nie kleily sie do zlotego przycisku. */
+  margin-top: 8px; margin-bottom: 36px;
   display: flex; align-items: center; justify-content: center; gap: 32px;
   flex-wrap: wrap;
   animation: fadeUp .8s .45s ease both;
@@ -391,26 +433,34 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   </video>
   <div class="hero-content">
     <img src="logo.png" alt="AURIMIQ.ai" class="hero-logo"/>
-    <div class="hero-eyebrow" data-i18n="hero.eyebrow">Unabh&auml;ngige Marktanalyse</div>
+    <!-- Eyebrow mowi, CZYM to jest, zanim padnie nazwa firmy. Niemiec
+         trafiajacy tu z TikToka nie zna marki AURIMIQ i nie ma powodu,
+         zeby sie jej domyslac. -->
+    <div class="hero-eyebrow" data-i18n="hero.eyebrow">KI-Terminal f&uuml;r B&ouml;rse, Krypto &amp; Rohstoffe</div>
     <h1 class="hero-title">AURIMIQ</h1>
-    <div class="hero-title-ai">intelligent wealth terminal</div>
-    <p class="hero-subtitle" data-i18n="hero.sub">Echtzeitkurse &middot; Claude AI &middot; DCF/LBO &middot; Portfolio</p>
 
-  <!-- ZMIANA 1: Jedno główne CTA na desktop, APK tylko na mobile -->
-    <div class="hero-btns">
-      <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span data-i18n="hero.btn">KOSTENLOS TESTEN — OHNE ANMELDUNG &rarr;</span></a>
-            <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="btn-outline btn-apk hero-btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_hero'})">&#9654; GOOGLE PLAY</a>
-      <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" class="btn-outline hero-btn-apk" style="font-size:9px" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_hero'})">&#128241; APK</a>
-    </div>
+    <!-- Tu stalo "intelligent wealth terminal" — angielska linia na
+         niemieckiej stronie, w miejscu, ktore ma wyjasnic obietnice.
+         Teraz stoi tu najmocniejszy argument, ktorego konkurencja
+         importujaca depot z brokera nie moze powtorzyc.
+         WARIANTY (podmien tekst i klucz hero.claim w slowniku nizej):
+         B, pod kupujacego po pracy:
+            "M&auml;rkte verstehen, auch nach einem langen Arbeitstag."
+         C, pod zmeczonego hypem:
+            "Keine Prognosen. Keine Provision. Nur die Zahlen." -->
+    <div class="hero-claim" data-i18n="hero.claim">Analysen ohne Zugriff auf Ihr Depot.</div>
 
-    <!-- ZMIANA 2: Social proof -->
+    <p class="hero-subtitle" data-i18n="hero.sub">Fragen Sie auf Deutsch &mdash; Antwort mit echten Kursen</p>
+
+    <!-- Pasek zaufania PRZED przyciskiem, nie pod nim: najpierw znika
+         obiekcja, dopiero potem prosimy o klikniecie. -->
     <div class="hero-social-proof">
       <!-- Wczesniej staly tu liczby "16 Countries" i "1K+ AI Queries",
            ktorych nie da sie potwierdzic. Zastapione stwierdzeniami prawdziwymi
            z konstrukcji produktu — i mocniejszymi sprzedazowo. -->
       <div class="sp-item">
         <span class="sp-num" data-i18n="sp.1n">KEIN</span>
-        <span class="sp-label" data-i18n="sp.1l">Zugriff aufs Konto</span>
+        <span class="sp-label" data-i18n="sp.1l">Zugriff auf Konto oder Depot</span>
       </div>
       <div class="sp-divider"></div>
       <div class="sp-item">
@@ -422,6 +472,15 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
         <span class="sp-num" data-i18n="sp.3n">GRATIS</span>
         <span class="sp-label" data-i18n="sp.3l">Ohne Kreditkarte</span>
       </div>
+    </div>
+
+    <!-- Link do APK zniknal stad razem z instrukcja "Unbekannte Quellen".
+         Google Play jest na zywo, a uczenie niemieckiego klienta, zeby
+         omijal sklep przy aplikacji FINANSOWEJ, kosztowalo wiecej zaufania
+         niz warta byla ta instalacja. Zostaje dyskretny link w stopce. -->
+    <div class="hero-btns">
+      <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_hero'})"><span data-i18n="hero.btn">KOSTENLOS TESTEN — OHNE ANMELDUNG &rarr;</span></a>
+      <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="gplay hero-btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_hero'})"><img class="gplay-img" src="gplay-de.png" alt="Jetzt bei Google Play" onerror="this.closest('.gplay').classList.add('gplay-off')"/><span class="gplay-alt">&#9654; GOOGLE PLAY</span></a>
     </div>
 
   </div>
@@ -557,31 +616,20 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
   <p class="cta-sub reveal" data-i18n="cta.sub">Wir verkaufen keine Finanzprodukte &middot; Wir nehmen keine Provision &middot; Wir fassen Ihr Depot nicht an</p>
   <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal">
     <a href="https://aurimiq-ai.netlify.app" class="btn-gold" onclick="gtag('event','click',{event_category:'cta',event_label:'enter_terminal_bottom'})"><span data-i18n="cta.btn">TERMINAL &Ouml;FFNEN &rarr;</span></a>
-        <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="btn-outline btn-apk" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_bottom'})">&#9654; GOOGLE PLAY</a>
-    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" class="btn-outline" style="font-size:9px" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_bottom'})">&#128241; APK</a>
+        <a href="https://play.google.com/store/apps/details?id=com.aurimiq" class="gplay" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_bottom'})"><img class="gplay-img" src="gplay-de.png" alt="Jetzt bei Google Play" onerror="this.closest('.gplay').classList.add('gplay-off')"/><span class="gplay-alt">&#9654; GOOGLE PLAY</span></a>
   </div>
 </section>
 
-<section style="padding:80px 6vw;background:var(--dark2);border-top:1px solid var(--border)">
-  <div style="max-width:600px;margin:0 auto;text-align:center">
-      <a href="https://play.google.com/store/apps/details?id=com.aurimiq" style="display:inline-block;margin-bottom:24px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'google_play_install_guide'})" data-i18n="apk.play">&#9654; BEI GOOGLE PLAY LADEN</a>
-    <span style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:5px;color:var(--gold);display:block;margin-bottom:16px" data-i18n="apk.alt">&rsaquo; ALTERNATIVE: APK MANUELL INSTALLIEREN</span>
-    <h3 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--gold2);margin-bottom:32px" data-i18n="apk.h">Wie installiere ich die APK?</h3>
-    <div class="apk-steps">
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">01</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px" data-i18n="apk.1t">HERUNTERLADEN</div><div style="font-size:12px;color:var(--text2);font-weight:300" data-i18n="apk.1d">Auf &bdquo;APK herunterladen&ldquo; tippen und die Datei auf dem Telefon speichern</div></div>
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">02</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px" data-i18n="apk.2t">ERLAUBEN</div><div style="font-size:12px;color:var(--text2);font-weight:300" data-i18n="apk.2d">Einstellungen &rarr; Sicherheit &rarr; &bdquo;Unbekannte Quellen&ldquo; &rarr; aktivieren</div></div>
-      <div style="background:var(--dark);padding:28px 20px;text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--border);margin-bottom:12px">03</div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold2);margin-bottom:8px" data-i18n="apk.3t">INSTALLIEREN</div><div style="font-size:12px;color:var(--text2);font-weight:300" data-i18n="apk.3d">Die geladene Datei &ouml;ffnen und auf &bdquo;Installieren&ldquo; tippen</div></div>
-    </div>
-    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" style="display:inline-block;margin-top:28px;background:var(--gold);color:var(--dark);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;font-weight:700;padding:16px 40px;text-decoration:none" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_install_guide'})" data-i18n="apk.dl">&#128241; AURIMIQ.ai APK HERUNTERLADEN &rarr;</a>
-  </div>
-</section>
 
 <footer>
   <div class="footer-logo">AURIMIQ.ai</div>
   <div>INTELLIGENT WEALTH TERMINAL &middot; &copy; 2026</div>
   <div>
     <span data-i18n="foot.dsc">Keine Anlageberatung. Handeln Sie eigenverantwortlich.</span> &middot;
-    <a href="delete-account.html" style="color:var(--gold);text-decoration:none;" data-i18n="foot.del">Konto l&ouml;schen</a>
+    <a href="delete-account.html" style="color:var(--gold);text-decoration:none;" data-i18n="foot.del">Konto l&ouml;schen</a> &middot;
+    <!-- Jedyne miejsce, gdzie APK zostaje: dyskretnie, bez instrukcji
+         omijania sklepu, dla uzytkownikow bez Google Play (np. Huawei). -->
+    <a href="https://github.com/marecki3300/aplikacja/releases/latest/download/AURIMIQ.apk" style="color:var(--text3);text-decoration:none;font-size:11px" onclick="gtag('event','click',{event_category:'cta',event_label:'download_apk_footer'})" data-i18n="foot.apk">APK (Direktinstallation)</a>
   </div>
 </footer>
 
@@ -601,13 +649,14 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     'nav.features':'Features', 'nav.pricing':'Pricing', 'nav.demo':'Terminal',
     'nav.cta':'LAUNCH TERMINAL →',
 
-    'hero.eyebrow':'Independent Market Intelligence',
-    'hero.sub':'Real-time Markets · Claude AI · DCF/LBO · Portfolio',
+    'hero.eyebrow':'AI terminal for stocks, crypto & commodities',
+    'hero.claim':'Market analysis without access to your portfolio.',
+    'hero.sub':'Ask in your own words — answers with live prices',
     'hero.btn':'TRY FREE — NO SIGN UP →',
 
-    'sp.1n':'NO',   'sp.1l':'Bank Account Access',
-    'sp.2n':'NO',   'sp.2l':'Commission Ever',
-    'sp.3n':'FREE', 'sp.3l':'No Card Required',
+    'sp.1n':'NO',   'sp.1l':'Access to your accounts',
+    'sp.2n':'NO',   'sp.2l':'Commission, ever',
+    'sp.3n':'FREE', 'sp.3l':'No card required',
 
     'feat.tag':'› Capabilities',
     'feat.title':'Everything you need<br/>to invest at the highest level',
@@ -660,23 +709,25 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     'cta.sub':'We sell no products · We take no commission · We never touch your account',
     'cta.btn':'ENTER TERMINAL →',
 
-    'apk.play':'▶ GET IT ON GOOGLE PLAY',
-    'apk.alt':'› ALTERNATIVE: MANUAL APK INSTALL',
-    'apk.h':'How to install the APK?',
-    'apk.1t':'DOWNLOAD', 'apk.1d':'Tap “Download APK” and save the file to your phone',
-    'apk.2t':'ALLOW',    'apk.2d':'Settings → Security → “Unknown sources” → enable',
-    'apk.3t':'INSTALL',  'apk.3d':'Open the downloaded file and tap “Install”',
-    'apk.dl':'📱 DOWNLOAD AURIMIQ.ai APK →',
-
+    /* Sekcja z instrukcja instalacji APK zostala usunieta ze strony —
+       uczyla niemieckiego klienta omijac sklep przy aplikacji finansowej,
+       a Google Play jest na zywo. Zostaje jeden dyskretny link w stopce. */
     'foot.dsc':'Not financial advice. Trade responsibly.',
     'foot.del':'Delete Account',
+    'foot.apk':'APK (direct install)',
 
     'js.ob':'overbought', 'js.os':'oversold', 'js.nu':'neutral',
     'js.lo':'(30d low)', 'js.hi':'(30d high)',
     'js.src':'Binance daily candles · computed live',
 
     'meta.title':'AURIMIQ.ai — Intelligent Wealth Terminal',
-    'meta.desc':'AURIMIQ.ai — Intelligent Wealth Terminal. Independent AI market analysis for crypto, stocks, commodities and forex. No account access, no commission.'
+    'meta.desc':'AURIMIQ.ai — Intelligent Wealth Terminal. Independent AI market analysis for crypto, stocks, commodities and forex. No account access, no commission.',
+
+    /* Odznaka Google Play istnieje w kazdym jezyku sklepu. Niemiec widzi
+       "Jetzt bei Google Play", nie angielskie "Get it on". To drobiazg,
+       ktory odroznia produkt zrobiony DLA rynku od przetlumaczonego. */
+    'badge.src':'gplay-en.png',
+    'badge.alt':'Get it on Google Play'
   };
 
   /* Niemieckiego slownika nie ma celowo — niemiecki JEST w HTML.
@@ -686,7 +737,9 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     'js.lo':'(Tief 30 T.)', 'js.hi':'(Hoch 30 T.)',
     'js.src':'Binance-Tageskerzen · live berechnet',
     'meta.title':'AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe',
-    'meta.desc':'AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe. Unabhängige Marktanalyse mit Kursen in Echtzeit. Kein Kontozugriff, keine Provision, keine Anlageberatung.'
+    'meta.desc':'AURIMIQ.ai — KI-Terminal für Börse, Krypto und Rohstoffe. Unabhängige Marktanalyse mit Kursen in Echtzeit. Kein Kontozugriff, keine Provision, keine Anlageberatung.',
+    'badge.src':'gplay-de.png',
+    'badge.alt':'Jetzt bei Google Play'
   };
 
   /* Migawka niemieckiego z DOM, robiona raz, zanim cokolwiek podmienimy. */
@@ -725,6 +778,14 @@ footer { border-top: 1px solid var(--border); padding: 40px 6vw; display: flex; 
     if (d['meta.title']) document.title = d['meta.title'];
     var m = document.querySelector('meta[name="description"]');
     if (m && d['meta.desc']) m.setAttribute('content', d['meta.desc']);
+
+    /* Odznaka sklepu idzie za jezykiem strony. Gdyby pliku nie bylo,
+       onerror w znaczniku przelaczy przycisk na wariant tekstowy —
+       strona nigdy nie pokaze zepsutego obrazka. */
+    document.querySelectorAll('img.gplay-img').forEach(function (im) {
+      if (d['badge.src']) im.setAttribute('src', d['badge.src']);
+      if (d['badge.alt']) im.setAttribute('alt', d['badge.alt']);
+    });
 
     document.querySelectorAll('.lang-switch button[data-setlang]').forEach(function (b) {
       b.setAttribute('aria-current', b.getAttribute('data-setlang') === uiLang ? 'true' : 'false');
